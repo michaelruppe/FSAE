@@ -1,0 +1,44 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>KiCad BOM Example 5</title>
+    </head>
+    <body>
+    <h1>C:\Users\Michael\Dropbox\01_FSAE\TSAL\high voltage measurement pcb\TSAL-HVM\TSAL-HVM.sch</h1>
+    <p>11/08/2019 10:13:29 PM</p>
+    <p>Eeschema (5.1.2)-2</p>
+    <p><b>Component Count:</b>43</p>
+    <table>
+    <tr><th style='width:640px'>Ref</th><th>Qnty</th><th>Value</th><th>Part</th><th>Footprint</th><th>Description</th><th>Vendor</th></tr>
+    <tr><td>C1</td><td>1</td><td>1u</td><td>Device:C</td><td>Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Unpolarized capacitor</td><td></td></tr>
+    <tr><td>C2</td><td>1</td><td>10n</td><td>Device:C</td><td>Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Unpolarized capacitor</td><td></td></tr>
+    <tr><td>C3</td><td>1</td><td>100n</td><td>Device:C</td><td>Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Unpolarized capacitor</td><td></td></tr>
+    <tr><td>D1</td><td>1</td><td>12V</td><td>Device:D_Zener</td><td>Diode_THT:D_DO-35_SOD27_P7.62mm_Horizontal</td><td>Zener diode</td><td></td></tr>
+    <tr><td>D2</td><td>1</td><td>PWR</td><td>Device:LED</td><td>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Light emitting diode</td><td></td></tr>
+    <tr><td>D3</td><td>1</td><td>VLO</td><td>Device:LED</td><td>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Light emitting diode</td><td></td></tr>
+    <tr><td>D4, D6</td><td>2</td><td>D</td><td>Device:D</td><td>Diode_SMD:D_SMA_Handsoldering</td><td>Diode</td><td></td></tr>
+    <tr><td>D5</td><td>1</td><td>VHI</td><td>Device:LED</td><td>LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder</td><td>Light emitting diode</td><td></td></tr>
+    <tr><td>F1, F2</td><td>2</td><td>Fuse_Small</td><td>Device:Fuse_Small</td><td>Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Fuse, small symbol</td><td></td></tr>
+    <tr><td>J1</td><td>1</td><td>HV IN</td><td>Connector:Conn_01x02_Male</td><td>Connector_Molex:Molex_Micro-Fit_3.0_43650-0200_1x02_P3.00mm_Horizontal</td><td>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</td><td></td></tr>
+    <tr><td>J2</td><td>1</td><td>Conn_01x03_Male</td><td>Connector:Conn_01x03_Male</td><td>Connector_Molex:Molex_Nano-Fit_105313-xx03_1x03_P2.50mm_Horizontal</td><td>Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)</td><td></td></tr>
+    <tr><td>J3</td><td>1</td><td>VHI</td><td>Connector:Conn_01x02_Male</td><td>Connector_Molex:Molex_Micro-Fit_3.0_43650-0200_1x02_P3.00mm_Horizontal</td><td>Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)</td><td></td></tr>
+    <tr><td>K1</td><td>1</td><td>TE_PCH-1xxx2M</td><td>Relay:TE_PCH-1xxx2M</td><td>Relay_THT:Relay_SPST_TE_PCH-1xxx2M</td><td>TE PCH relay, Miniature Single Pole, SPST-NO</td><td></td></tr>
+    <tr><td>Q1, Q2, Q3</td><td>3</td><td>2N7002</td><td>Transistor_FET:2N7002</td><td>Package_TO_SOT_SMD:SOT-23</td><td>0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23</td><td></td></tr>
+    <tr><td>R1, R2</td><td>2</td><td>499k</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R3</td><td>1</td><td>49k9</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R4, R11, R13, R15</td><td>4</td><td>2k2</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R5</td><td>1</td><td>75k</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R6, R12, R14</td><td>3</td><td>24k</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R7</td><td>1</td><td>900</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R8, R9</td><td>2</td><td>100</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R10</td><td>1</td><td>1M</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>R16</td><td>1</td><td>PRV</td><td>Device:R</td><td>Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder</td><td>Resistor</td><td></td></tr>
+    <tr><td>U1</td><td>1</td><td>SPAN02A-12</td><td>TSAL-HVM:SPAN02A-12</td><td>TSAL-HVM:SPAN02</td><td></td><td></td></tr>
+    <tr><td>U2</td><td>1</td><td>LM311</td><td>Comparator:LM311</td><td>Package_SO:SOIC-8_3.9x4.9mm_P1.27mm</td><td>Voltage Comparator, DIP-8/SOIC-8/SSOP-8</td><td></td></tr><!--TABLEROW-->
+    </table>
+    </body>
+</html>
+    

@@ -1,0 +1,37 @@
+"Source:","C:\Users\Michael\Dropbox\01_FSAE\TSAL\led driver\TSAL-DRV\TSAL-DRV.sch"
+"Date:","8/08/2019 10:55:47 PM"
+"Tool:","Eeschema (5.1.2)-2"
+"Generator:","C:\Program Files\KiCad\bin\scripting\plugins/bom_csv_grouped_by_value.py"
+"Component Count:","12"
+
+"Individual Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"","","C1","100n","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","C2","10n","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","C3","1u","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","J1","Conn_01x08_Male","Connector:Conn_01x08_Male","Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical","~"
+"","","Q1","IRF9540N","Transistor_FET:IRF9540N","Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown","http://www.irf.com/product-info/datasheets/data/irf9540n.pdf"
+"","","Q2","IRF540N","Transistor_FET:IRF540N","Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown","http://www.irf.com/product-info/datasheets/data/irf540n.pdf"
+"","","R1","220","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","R2","22k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","R3","22k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","R4","220k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","R5","220k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"","","U1","NE555","Timer:NE555","Package_DIP:DIP-8_W7.62mm_LongPads","http://www.ti.com/lit/ds/symlink/ne555.pdf"
+
+
+
+"Collated Components:"
+
+"Item","Qty","Reference(s)","Value","LibPart","Footprint","Datasheet"
+"1","1","C1","100n","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"2","1","C2","10n","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"3","1","C3","1u","Device:C","Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"4","1","J1","Conn_01x08_Male","Connector:Conn_01x08_Male","Connector_PinSocket_2.54mm:PinSocket_1x08_P2.54mm_Vertical","~"
+"5","1","Q1","IRF9540N","Transistor_FET:IRF9540N","Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown","http://www.irf.com/product-info/datasheets/data/irf9540n.pdf"
+"6","1","Q2","IRF540N","Transistor_FET:IRF540N","Package_TO_SOT_THT:TO-220-3_Horizontal_TabDown","http://www.irf.com/product-info/datasheets/data/irf540n.pdf"
+"7","1","R1","220","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"8","2","R2, R3","22k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"9","2","R4, R5","220k","Device:R","Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder","~"
+"10","1","U1","NE555","Timer:NE555","Package_DIP:DIP-8_W7.62mm_LongPads","http://www.ti.com/lit/ds/symlink/ne555.pdf"
