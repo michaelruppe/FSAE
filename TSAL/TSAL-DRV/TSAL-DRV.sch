@@ -6,11 +6,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "TSAL - LED Driver"
-Date ""
-Rev "1"
+Date "2019-08-15"
+Rev "1.x"
 Comp "NU Racing (UoN)"
 Comment1 "Michael Ruppe"
-Comment2 "github.com/michaelruppe/TSAL"
+Comment2 "github.com/michaelruppe/FSAE"
 Comment3 ""
 Comment4 ""
 $EndDescr

@@ -6,11 +6,11 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "TSAL HV Measurement"
-Date ""
-Rev "1"
+Date "2019-08-15"
+Rev "1.x"
 Comp "NU Racing (UoN)"
 Comment1 "Michael Ruppe"
-Comment2 "github.com/michaelruppe/TSAL"
+Comment2 "github.com/michaelruppe/FSAE"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -916,4 +916,54 @@ NoConn ~ 1250 3450
 NoConn ~ 1250 2650
 Wire Wire Line
 	4800 3350 4800 3450
+Wire Notes Line width 8
+	2750 2050 2750 4150
+Wire Notes Line width 8
+	800  4150 800  2050
+Wire Notes Line width 8
+	800  2050 2750 2050
+Wire Notes Line width 8
+	2750 4150 800  4150
+Text Notes 800  2050 0    50   ~ 10
+Input scaling
+Wire Notes Line
+	2850 850  3350 850 
+Wire Notes Line
+	3350 850  3350 2550
+Wire Notes Line
+	3350 2550 2850 2550
+Wire Notes Line
+	2850 2550 2850 850 
+Text Notes 2850 850  0    50   ~ 10
+Reference Voltage
+Wire Notes Line
+	8250 4000 10500 4000
+Wire Notes Line
+	10500 4000 10500 1100
+Wire Notes Line
+	10500 1100 8250 1100
+Wire Notes Line
+	8250 1100 8250 4000
+Wire Notes Line
+	8000 1400 8000 4200
+Wire Notes Line
+	8000 4200 5550 4200
+Wire Notes Line
+	5550 4200 5550 1400
+Wire Notes Line
+	5550 1400 8000 1400
+Text Notes 5550 1400 0    50   ~ 10
+Isolated output
+Text Notes 8250 1100 0    50   ~ 10
+Status indicator LEDs
+Text Notes 850  5100 0    50   ~ 10
+Isolated power supply
+Wire Notes Line
+	4250 5100 850  5100
+Wire Notes Line
+	850  5100 850  6400
+Wire Notes Line
+	850  6400 4250 6400
+Wire Notes Line
+	4250 6400 4250 5100
 $EndSCHEMATC
