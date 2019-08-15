@@ -50,10 +50,16 @@ To comply with FSAE rules the voltage systems on board are galvanically isolated
  - Should the output of comparator U2 become disabled, R12 will continually pull the gate of Q1 high, energising the relay coil and indicating that a safe voltage is present.
  - If J1 is disconnected the TSAL will continually indicate a safe voltage is present - regardless of whether this is true or not.
 
-These failure modes are clearly undesirable but deemed an acceptable risk for a first-revision TSAL. The reasons these modes are fail-unsafe is due to the action of the comparator: The particular comparator chosen (LM311) has an open-collector output which must be accompanied by a pullup resistor. Since the switching action of the comparator pulls the output low and is capable of driving a relay directly, a suggested improvement is to either drive the relay coil directly (which also inverts the output action). This would reduce the parts count, removing Q1 from the BOM and reduce the number of critical components. Alternatively, a comparator with a push-pull output could be selected and directly substituted for U2.
+These failure modes are clearly undesirable but deemed an acceptable risk for a first-revision TSAL. No publicly available design was found from competing teams that addressed these limitations.
+The reasons these modes are fail-unsafe is due to the action of the comparator: The particular comparator chosen (LM311) has an open-collector output which must be accompanied by a pullup resistor. Since the switching action of the comparator pulls the output low and is capable of driving a relay directly, a suggested improvement is to either drive the relay coil directly (which also inverts the output action). This would reduce the parts count, removing Q1 from the BOM and reduce the number of critical components. Alternatively, a comparator with a push-pull output could be selected and directly substituted for U2.
 
 ### Failure Modes - Fail Safe
  - Should the TSAL-HVM lose power, the coil of relay K1 will be de-energised and its contacts will open. This will continually signal that dangerous voltage is present in the Tractive System. While that may not necessarily be true, the implausible behaviour of the TSAL should alert engineers that a fault is present: Either the AIRs are stuck closed, the Tractive System capacitors are remaining charged or a fault is present in the TSAL. All of these plausible causes should warrant due caution.
+
+### Recommendations
+There is significant room for improvement of the TSAL-HVM as made clear by the failure modes listed above. Here I will outline a brief description of how one might address what I consider to be the most serious limitation: The tendency to indicate safe-voltage if the TSAL-HVM is disconnected from the Tractive System.
+
+If one can assume that the Tractive System is always capacitive (large capacitors at the motor driver power-input) then the HVM may be redesigned to check for the presence of capacitance at its measurement terminals using the Grounded Specimen Test method.
 
 ## Indicator module (DRV)
 ![](TSAL-DRV/render.png)
@@ -86,3 +92,5 @@ The heart of the driver module is the complementary operation of the timer (U1) 
 When VHI (J3) is pulled to ground, Q1 switches on - driving VLO indicator LED (D2) and powering the offboard, green TSAL LEDs (J1). A low signal at VHI also holds the reset pin of the U1 low, disabling its output.
 
 When VHI is high impedance (relay on HVM is open), R2 pulls the gate of Q1 high, turning off Q1. The RESET pin of U1 is now high, activating U1 which flashes VHI LED (D1) and the off-board red TSAL LEDs (J1).
+
+Power to the TSAL-DRV is unregulated, since all components are sufficiently robust to handle significant deviations from the expected 12V
