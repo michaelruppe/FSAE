@@ -1,15 +1,16 @@
 EESchema Schematic File Version 4
+LIBS:HFL-cache
 EELAYER 29 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
-Title ""
+Title "Hard Fault Latch"
 Date ""
-Rev ""
-Comp ""
-Comment1 ""
-Comment2 ""
+Rev "v1"
+Comp "NU Racing"
+Comment1 "Michael Ruppe"
+Comment2 "github.com/michaelruppe/FSAE"
 Comment3 ""
 Comment4 ""
 $EndDescr
@@ -583,4 +584,373 @@ Wire Wire Line
 	3050 1650 3050 1600
 Wire Wire Line
 	3050 1600 3000 1600
+Text GLabel 6900 2600 2    50   Input ~ 0
+PDOC-OK
+Text GLabel 5900 2600 2    50   Input ~ 0
+IMD-OK
+Text GLabel 4900 2600 2    50   Input ~ 0
+BMS-OK
+Text GLabel 3900 2600 2    50   Input ~ 0
+BSPD-OK
+$Comp
+L Transistor_BJT:MMBT3904 Q2
+U 1 1 5D5646F6
+P 1900 6900
+F 0 "Q2" H 2091 6946 50  0000 L CNN
+F 1 "MMBT3904" H 2091 6855 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2100 6825 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 1900 6900 50  0001 L CNN
+	1    1900 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R8
+U 1 1 5D5666FE
+P 2000 6550
+F 0 "R8" H 2070 6596 50  0000 L CNN
+F 1 "2k7" H 2070 6505 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 1930 6550 50  0001 C CNN
+F 3 "~" H 2000 6550 50  0001 C CNN
+	1    2000 6550
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0114
+U 1 1 5D568B39
+P 2000 7200
+F 0 "#PWR0114" H 2000 6950 50  0001 C CNN
+F 1 "GND" H 2005 7027 50  0000 C CNN
+F 2 "" H 2000 7200 50  0001 C CNN
+F 3 "" H 2000 7200 50  0001 C CNN
+	1    2000 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 7200 2000 7150
+Wire Wire Line
+	2000 7150 2300 7150
+Wire Wire Line
+	2300 7150 2300 6900
+Connection ~ 2000 7150
+Wire Wire Line
+	2000 7150 2000 7100
+$Comp
+L Device:R R6
+U 1 1 5D5711B2
+P 1550 6900
+F 0 "R6" H 1620 6946 50  0000 L CNN
+F 1 "2k7" H 1620 6855 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 1480 6900 50  0001 C CNN
+F 3 "~" H 1550 6900 50  0001 C CNN
+	1    1550 6900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q4
+U 1 1 5D56565C
+P 2200 6700
+F 0 "Q4" H 2391 6746 50  0000 L CNN
+F 1 "MMBT3904" H 2391 6655 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2400 6625 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 2200 6700 50  0001 L CNN
+	1    2200 6700
+	1    0    0    -1  
+$EndComp
+Connection ~ 2000 6700
+$Comp
+L power:+12V #PWR0115
+U 1 1 5D576DDB
+P 2000 6400
+F 0 "#PWR0115" H 2000 6250 50  0001 C CNN
+F 1 "+12V" H 2015 6573 50  0000 C CNN
+F 2 "" H 2000 6400 50  0001 C CNN
+F 3 "" H 2000 6400 50  0001 C CNN
+	1    2000 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q6
+U 1 1 5D58097E
+P 3750 6900
+F 0 "Q6" H 3941 6946 50  0000 L CNN
+F 1 "MMBT3904" H 3941 6855 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3950 6825 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 3750 6900 50  0001 L CNN
+	1    3750 6900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R12
+U 1 1 5D580984
+P 3850 6550
+F 0 "R12" H 3920 6596 50  0000 L CNN
+F 1 "2k7" H 3920 6505 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3780 6550 50  0001 C CNN
+F 3 "~" H 3850 6550 50  0001 C CNN
+	1    3850 6550
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0116
+U 1 1 5D58098A
+P 3850 7200
+F 0 "#PWR0116" H 3850 6950 50  0001 C CNN
+F 1 "GND" H 3855 7027 50  0000 C CNN
+F 2 "" H 3850 7200 50  0001 C CNN
+F 3 "" H 3850 7200 50  0001 C CNN
+	1    3850 7200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 7200 3850 7150
+Wire Wire Line
+	3850 7150 4150 7150
+Wire Wire Line
+	4150 7150 4150 6900
+Connection ~ 3850 7150
+Wire Wire Line
+	3850 7150 3850 7100
+$Comp
+L Device:R R10
+U 1 1 5D580995
+P 3400 6900
+F 0 "R10" H 3470 6946 50  0000 L CNN
+F 1 "2k7" H 3470 6855 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3330 6900 50  0001 C CNN
+F 3 "~" H 3400 6900 50  0001 C CNN
+	1    3400 6900
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q8
+U 1 1 5D58099B
+P 4050 6700
+F 0 "Q8" H 4241 6746 50  0000 L CNN
+F 1 "MMBT3904" H 4241 6655 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4250 6625 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 4050 6700 50  0001 L CNN
+	1    4050 6700
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 6700
+$Comp
+L power:+12V #PWR0117
+U 1 1 5D5809A2
+P 3850 6400
+F 0 "#PWR0117" H 3850 6250 50  0001 C CNN
+F 1 "+12V" H 3865 6573 50  0000 C CNN
+F 2 "" H 3850 6400 50  0001 C CNN
+F 3 "" H 3850 6400 50  0001 C CNN
+	1    3850 6400
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q1
+U 1 1 5D586ACC
+P 1900 5550
+F 0 "Q1" H 2091 5596 50  0000 L CNN
+F 1 "MMBT3904" H 2091 5505 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2100 5475 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 1900 5550 50  0001 L CNN
+	1    1900 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R7
+U 1 1 5D586AD2
+P 2000 5200
+F 0 "R7" H 2070 5246 50  0000 L CNN
+F 1 "2k7" H 2070 5155 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 1930 5200 50  0001 C CNN
+F 3 "~" H 2000 5200 50  0001 C CNN
+	1    2000 5200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0118
+U 1 1 5D586AD8
+P 2000 5850
+F 0 "#PWR0118" H 2000 5600 50  0001 C CNN
+F 1 "GND" H 2005 5677 50  0000 C CNN
+F 2 "" H 2000 5850 50  0001 C CNN
+F 3 "" H 2000 5850 50  0001 C CNN
+	1    2000 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2000 5850 2000 5800
+Wire Wire Line
+	2000 5800 2300 5800
+Wire Wire Line
+	2300 5800 2300 5550
+Connection ~ 2000 5800
+Wire Wire Line
+	2000 5800 2000 5750
+$Comp
+L Device:R R5
+U 1 1 5D586AE3
+P 1550 5550
+F 0 "R5" H 1620 5596 50  0000 L CNN
+F 1 "2k7" H 1620 5505 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 1480 5550 50  0001 C CNN
+F 3 "~" H 1550 5550 50  0001 C CNN
+	1    1550 5550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q3
+U 1 1 5D586AE9
+P 2200 5350
+F 0 "Q3" H 2391 5396 50  0000 L CNN
+F 1 "MMBT3904" H 2391 5305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 2400 5275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 2200 5350 50  0001 L CNN
+	1    2200 5350
+	1    0    0    -1  
+$EndComp
+Connection ~ 2000 5350
+$Comp
+L power:+12V #PWR0119
+U 1 1 5D586AF0
+P 2000 5050
+F 0 "#PWR0119" H 2000 4900 50  0001 C CNN
+F 1 "+12V" H 2015 5223 50  0000 C CNN
+F 2 "" H 2000 5050 50  0001 C CNN
+F 3 "" H 2000 5050 50  0001 C CNN
+	1    2000 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q5
+U 1 1 5D5A0C69
+P 3750 5550
+F 0 "Q5" H 3941 5596 50  0000 L CNN
+F 1 "MMBT3904" H 3941 5505 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 3950 5475 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 3750 5550 50  0001 L CNN
+	1    3750 5550
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R11
+U 1 1 5D5A0C6F
+P 3850 5200
+F 0 "R11" H 3920 5246 50  0000 L CNN
+F 1 "2k7" H 3920 5155 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3780 5200 50  0001 C CNN
+F 3 "~" H 3850 5200 50  0001 C CNN
+	1    3850 5200
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR0120
+U 1 1 5D5A0C75
+P 3850 5850
+F 0 "#PWR0120" H 3850 5600 50  0001 C CNN
+F 1 "GND" H 3855 5677 50  0000 C CNN
+F 2 "" H 3850 5850 50  0001 C CNN
+F 3 "" H 3850 5850 50  0001 C CNN
+	1    3850 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3850 5850 3850 5800
+Wire Wire Line
+	3850 5800 4150 5800
+Wire Wire Line
+	4150 5800 4150 5550
+Connection ~ 3850 5800
+Wire Wire Line
+	3850 5800 3850 5750
+$Comp
+L Device:R R9
+U 1 1 5D5A0C80
+P 3400 5550
+F 0 "R9" H 3470 5596 50  0000 L CNN
+F 1 "2k7" H 3470 5505 50  0000 L CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 3330 5550 50  0001 C CNN
+F 3 "~" H 3400 5550 50  0001 C CNN
+	1    3400 5550
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Transistor_BJT:MMBT3904 Q7
+U 1 1 5D5A0C86
+P 4050 5350
+F 0 "Q7" H 4241 5396 50  0000 L CNN
+F 1 "MMBT3904" H 4241 5305 50  0000 L CNN
+F 2 "Package_TO_SOT_SMD:SOT-23" H 4250 5275 50  0001 L CIN
+F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 4050 5350 50  0001 L CNN
+	1    4050 5350
+	1    0    0    -1  
+$EndComp
+Connection ~ 3850 5350
+$Comp
+L power:+12V #PWR0121
+U 1 1 5D5A0C8D
+P 3850 5050
+F 0 "#PWR0121" H 3850 4900 50  0001 C CNN
+F 1 "+12V" H 3865 5223 50  0000 C CNN
+F 2 "" H 3850 5050 50  0001 C CNN
+F 3 "" H 3850 5050 50  0001 C CNN
+	1    3850 5050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x04_Male J5
+U 1 1 5D5A4B1A
+P 5300 6100
+F 0 "J5" H 5300 6450 50  0000 C CNN
+F 1 "FLT-LT" H 5350 6350 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 5300 6100 50  0001 C CNN
+F 3 "~" H 5300 6100 50  0001 C CNN
+	1    5300 6100
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4150 6500 5100 6500
+Wire Wire Line
+	5100 6500 5100 6200
+Wire Wire Line
+	4150 5150 5100 5150
+Wire Wire Line
+	5100 5150 5100 5900
+Wire Wire Line
+	2300 5150 2850 5150
+Wire Wire Line
+	2850 5150 2850 6100
+Wire Wire Line
+	2850 6100 4250 6100
+Wire Wire Line
+	4250 6100 4250 6000
+Wire Wire Line
+	4250 6000 5100 6000
+Wire Wire Line
+	2300 6500 3050 6500
+Wire Wire Line
+	3050 6500 3050 6150
+Wire Wire Line
+	3050 6150 4400 6150
+Wire Wire Line
+	4400 6150 4400 6100
+Wire Wire Line
+	4400 6100 5100 6100
+Text GLabel 3250 6900 0    50   Input ~ 0
+BSPD-OK
+Text GLabel 1400 6900 0    50   Input ~ 0
+PDOC-OK
+Text GLabel 1400 5550 0    50   Input ~ 0
+BMS-OK
+Text GLabel 3250 5550 0    50   Input ~ 0
+IMD-OK
+Wire Notes Line
+	900  7500 5500 7500
+Wire Notes Line
+	5500 7500 5500 4750
+Wire Notes Line
+	5500 4750 900  4750
+Wire Notes Line
+	900  4750 900  7500
+Text Notes 900  4700 0    50   ~ 10
+Invert OK status signals for fault-display on dash
 $EndSCHEMATC
