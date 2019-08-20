@@ -483,9 +483,9 @@ F 3 "~" H 10300 3250 50  0001 C CNN
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	3000 1500 4900 1500
+	3000 1500 3350 1500
 Wire Wire Line
-	3000 1400 3450 1400
+	3000 1400 3300 1400
 Text Label 3600 1600 0    50   ~ 0
 BSPD-OK
 Text Label 3600 1500 0    50   ~ 0
@@ -579,7 +579,7 @@ Wire Wire Line
 Wire Wire Line
 	3550 1400 3550 1650
 Wire Wire Line
-	3550 1650 3050 1650
+	3550 1650 3400 1650
 Wire Wire Line
 	3050 1650 3050 1600
 Wire Wire Line
@@ -953,4 +953,41 @@ Wire Notes Line
 	900  4750 900  7500
 Text Notes 900  4700 0    50   ~ 10
 Invert OK status signals for fault-display on dash
+$Comp
+L Connector:Conn_01x04_Male J6
+U 1 1 5D5BA0F6
+P 2800 2400
+F 0 "J6" H 2800 2750 50  0000 C CNN
+F 1 "FOUT" H 2850 2650 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A2_2x02_P4.20mm_Vertical" H 2800 2400 50  0001 C CNN
+F 3 "~" H 2800 2400 50  0001 C CNN
+	1    2800 2400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3250 1600 3250 2300
+Wire Wire Line
+	3250 2300 3000 2300
+Connection ~ 3250 1600
+Wire Wire Line
+	3300 1400 3300 2400
+Wire Wire Line
+	3300 2400 3000 2400
+Connection ~ 3300 1400
+Wire Wire Line
+	3300 1400 3450 1400
+Wire Wire Line
+	3350 1500 3350 2500
+Wire Wire Line
+	3350 2500 3000 2500
+Connection ~ 3350 1500
+Wire Wire Line
+	3350 1500 4900 1500
+Wire Wire Line
+	3400 1650 3400 2600
+Wire Wire Line
+	3400 2600 3000 2600
+Connection ~ 3400 1650
+Wire Wire Line
+	3400 1650 3050 1650
 $EndSCHEMATC
