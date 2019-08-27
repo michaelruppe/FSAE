@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name PDIST)(type KiCad)(uri ${KIPRJMOD}/PDIST.pretty)(options "")(descr ""))
+)
