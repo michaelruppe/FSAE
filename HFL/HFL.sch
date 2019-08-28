@@ -447,10 +447,6 @@ F 3 "~" H 10300 3250 50  0001 C CNN
 	1    10300 3250
 	-1   0    0    -1  
 $EndComp
-Wire Wire Line
-	2200 1500 2550 1500
-Wire Wire Line
-	2200 1400 2500 1400
 Text Label 3600 1600 0    50   ~ 0
 BSPD-OK
 Text Label 3600 1500 0    50   ~ 0
@@ -532,19 +528,17 @@ Wire Wire Line
 Wire Wire Line
 	2650 1300 2650 1400
 Wire Wire Line
-	2650 1300 6900 1300
+	2650 1300 3100 1300
 Wire Wire Line
 	2450 1600 2450 1300
 Wire Wire Line
 	2450 1300 2200 1300
 Wire Wire Line
-	2450 1600 3900 1600
+	2450 1600 3000 1600
 Wire Wire Line
 	3550 1400 5900 1400
 Wire Wire Line
 	3550 1400 3550 1650
-Wire Wire Line
-	3550 1650 2600 1650
 Wire Wire Line
 	2250 1650 2250 1600
 Wire Wire Line
@@ -563,37 +557,11 @@ U 1 1 5D5BA0F6
 P 2000 2400
 F 0 "J2" H 2000 2750 50  0000 C CNN
 F 1 "FOUT" H 2050 2650 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A2_2x02_P4.20mm_Vertical" H 2000 2400 50  0001 C CNN
+F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 2000 2400 50  0001 C CNN
 F 3 "~" H 2000 2400 50  0001 C CNN
 	1    2000 2400
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	2450 1600 2450 2300
-Wire Wire Line
-	2450 2300 2200 2300
-Connection ~ 2450 1600
-Wire Wire Line
-	2500 1400 2500 2400
-Wire Wire Line
-	2500 2400 2200 2400
-Connection ~ 2500 1400
-Wire Wire Line
-	2500 1400 2650 1400
-Wire Wire Line
-	2550 1500 2550 2500
-Wire Wire Line
-	2550 2500 2200 2500
-Connection ~ 2550 1500
-Wire Wire Line
-	2550 1500 4900 1500
-Wire Wire Line
-	2600 1650 2600 2600
-Wire Wire Line
-	2600 2600 2200 2600
-Connection ~ 2600 1650
-Wire Wire Line
-	2600 1650 2250 1650
 $Comp
 L Connector:Conn_01x06_Male J1
 U 1 1 5D68DF2C
@@ -635,4 +603,38 @@ F 3 "" H 8950 3900 50  0001 C CNN
 $EndComp
 Text Label 3600 1700 0    50   ~ 0
 BOTS-OK
+Wire Wire Line
+	2250 1650 2900 1650
+Wire Wire Line
+	2200 1500 2950 1500
+Wire Wire Line
+	2200 1400 2650 1400
+Wire Wire Line
+	2900 2300 2900 1650
+Wire Wire Line
+	2200 2300 2900 2300
+Connection ~ 2900 1650
+Wire Wire Line
+	2900 1650 3550 1650
+Wire Wire Line
+	2950 2400 2950 1500
+Wire Wire Line
+	2200 2400 2950 2400
+Connection ~ 2950 1500
+Wire Wire Line
+	2950 1500 4900 1500
+Wire Wire Line
+	3000 2500 3000 1600
+Wire Wire Line
+	2200 2500 3000 2500
+Connection ~ 3000 1600
+Wire Wire Line
+	3000 1600 3900 1600
+Wire Wire Line
+	3100 2600 3100 1300
+Wire Wire Line
+	2200 2600 3100 2600
+Connection ~ 3100 1300
+Wire Wire Line
+	3100 1300 6900 1300
 $EndSCHEMATC
