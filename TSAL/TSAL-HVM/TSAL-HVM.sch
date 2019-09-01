@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "TSAL HV Measurement"
 Date "2019-08-15"
-Rev "1.x"
+Rev "1.1"
 Comp "NU Racing (UoN)"
 Comment1 "Michael Ruppe"
 Comment2 "github.com/michaelruppe/FSAE"
