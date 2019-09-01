@@ -847,4 +847,8 @@ Text Notes 9600 1700 0    59   ~ 0
 Local VHI indicator\n(Accumulator)
 Text Notes 5000 5750 0    59   ~ 0
 Comparator supply\nbypass
+Text Label 3450 2000 0    50   ~ 10
+Vref
+Text Label 2850 3150 0    50   ~ 10
+Vin
 $EndSCHEMATC

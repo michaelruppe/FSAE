@@ -40,9 +40,9 @@ R9, R8, C2 form an input filter for the comparator which is prescribed in the LM
 
 R10 is included to provide hysteresis. Since hysteresis is symmetric in this circuit, it is chosen to be small so as not to significantly offset the actual switching threshold from the desired threshold.
 
-N-Channel MOSFET, Q1 and relay K1 form the isolated output of the circuit. While the input voltage is less than 60V, R12 pulls-up the gate of Q1, energising the relay coil and closing the contacts. D3 is a status indicator and D4 is a flyback diode.
+N-Channel MOSFET, Q1 and relay K1 form the isolated output of the circuit. While the input voltage is less than 60V, R11 pulls-up the gate of Q1, energising the relay coil and closing the contacts. D3 is a status indicator and D4 is a flyback diode.
 
-The action of Q1 is inverted in Q2 and Q3, which drive an on-board status indicator LED and an off-board status indicator respectively. R16 is a provisional current-limiting resistor should J4 be connected directly to an LED.
+The action of Q1 is inverted in Q2 and Q3, which drive an on-board status indicator LED and an off-board status indicator respectively.
 
 To comply with FSAE rules the voltage systems on board are galvanically isolated. The clearances on-board require it to be conformal coated.
 
