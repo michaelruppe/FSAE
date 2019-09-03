@@ -94,3 +94,7 @@ When VHI (J2) is pulled to ground, Q1 switches on - driving VLO indicator LED (D
 When VHI is floating (the output-relay on HVM is open), R2 pulls-up the gate of Q1, turning off Q1. The RESET pin of U1 is also pulled-up, activating U1 which oscillates at approx. 3Hz, oscillating Q2 which flashes VHI LED (D1) and the off-board red TSAL LEDs (J1).
 
 Power to the TSAL-DRV is unregulated, since all components are sufficiently robust to handle power deviations from the expected 12V.
+
+### Known issues
+The two power MOSFETs are a little close together. So close in fact that they could feasibly touch given the tolerances of fasteners and 3.2mm drilled holes.
+Nothing should be *immediately* damaged if the tabs of the MOSFETs touch. However, any difference in switching time will cause high-current through both transistors whenever the state of VHI changes. This is because the MOSFET drains will be connected together so there will be a momentary current path from GLV+ through Q1, Q2, to ground during any overlap in switching time.
