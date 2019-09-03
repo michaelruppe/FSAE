@@ -91,6 +91,6 @@ The heart of the driver module is the complementary operation of the timer (U1) 
 
 When VHI (J2) is pulled to ground, Q1 switches on - driving VLO indicator LED (D2) and powering the offboard, green TSAL LEDs (J1). A low signal at VHI also holds the reset pin of the U1 low, disabling its output.
 
-When VHI is high-impedance (the output-relay on HVM is open), R2 pulls-up the gate of Q1, turning off Q1. The RESET pin of U1 is also pulled-up, activating U1 which oscillates at approx. 3Hz, oscillating Q2 which flashes VHI LED (D1) and the off-board red TSAL LEDs (J1).
+When VHI is floating (the output-relay on HVM is open), R2 pulls-up the gate of Q1, turning off Q1. The RESET pin of U1 is also pulled-up, activating U1 which oscillates at approx. 3Hz, oscillating Q2 which flashes VHI LED (D1) and the off-board red TSAL LEDs (J1).
 
 Power to the TSAL-DRV is unregulated, since all components are sufficiently robust to handle power deviations from the expected 12V.
