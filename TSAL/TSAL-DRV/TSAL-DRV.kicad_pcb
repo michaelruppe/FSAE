@@ -2,7 +2,7 @@
 
   (general
     (thickness 1.6)
-    (drawings 12)
+    (drawings 13)
     (tracks 121)
     (zones 0)
     (modules 23)
@@ -1054,6 +1054,9 @@
     )
   )
 
+  (gr_text v1 (at 123.825 47.625 90) (layer F.SilkS)
+    (effects (font (size 1 1) (thickness 0.25)))
+  )
   (gr_line (start 83.82 76.835) (end 83.82 41.91) (layer Edge.Cuts) (width 0.05) (tstamp 5D4ED218))
   (gr_line (start 122.555 80.645) (end 87.63 80.645) (layer Edge.Cuts) (width 0.05) (tstamp 5D4ED21E))
   (gr_line (start 126.365 41.91) (end 126.365 76.835) (layer Edge.Cuts) (width 0.05) (tstamp 5D4ED212))
@@ -1068,8 +1071,8 @@
   (gr_text github.com/michaelruppe/TSAL (at 104.902 79.375) (layer F.SilkS) (tstamp 5D4ED0B0)
     (effects (font (size 1 1) (thickness 0.15)))
   )
-  (gr_text "TSAL v1\nIndicator" (at 121.92 52.832 90) (layer F.SilkS) (tstamp 5D4ED0B9)
-    (effects (font (size 1.5 1.5) (thickness 0.3)))
+  (gr_text "TSAL DRV" (at 121.92 57.15 90) (layer F.SilkS) (tstamp 5D4ED0B9)
+    (effects (font (size 1.5 1.5) (thickness 0.3)) (justify left))
   )
   (gr_text VHI (at 120.015 62.484 90) (layer F.SilkS) (tstamp 5D4ED0AA)
     (effects (font (size 1.5 1.5) (thickness 0.3)))
