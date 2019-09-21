@@ -4,6 +4,9 @@ A comparator-based TSAL design for FSAE Electric 2019
 
 The *Tractive System Active Light* is a red/green indicator light that indicates the presence of high-voltage in the Tractive System. The following design for a TSAL driver is split across two modules. The High-Voltage Measurement module (HVM) and the Indicator Module (DRV). The HVM connects to the output of the AIRs, and is located in the accumulator housing. The HVM is responsible for detecting whether Tractive System voltage is above or below the safe threshold.
 
+## System Overview
+![](overview.png)
+
 ## High-Voltage Measurement (HVM)
 ![](TSAL-HVM/render.png)
 
@@ -82,3 +85,5 @@ Power to the TSAL-DRV is unregulated, since all components are sufficiently robu
 ### Known issues
 The two power MOSFETs are a little close together. So close in fact that they could feasibly touch given the tolerances of fasteners and 3.2mm drilled holes.
 Nothing should be *immediately* damaged if the tabs of the MOSFETs touch. However, any difference in switching time will cause momentary high-current through both transistors whenever the state of VHI changes. This is because the MOSFET drains will be connected together so there will be a momentary current path from GLV+ through Q1, Q2, to ground during any overlap in switching time.
+
+Operation of the red/green circuit blocks are not *strictly* ​complementary. It is feasible that some analogue voltage could be applied at VHI which would allow both red and green components of the TSAL to be active. This is not a concern under the prescribed operating conditions. The operation could trivially be made strictly complementary by including input conditioning to VHI.
