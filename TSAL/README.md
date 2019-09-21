@@ -7,6 +7,8 @@ The *Tractive System Active Light* is a red/green indicator light that indicates
 ## High-Voltage Measurement (HVM)
 ![](TSAL-HVM/render.png)
 
+The HVM is located in the accumulator and measures the TS-voltage. The status of the TS-voltage is output by a open-collector style output (switched relay contact to ground).
+
 The HVM has been designed to mount above the IMD, using the same mounting-hole dimensions. This will likely require conformal coating of the board and an intermediate insulating material to meet regulation EV.6.1.5 and EV.6.1.7
 
 The HVM is designed to **not** be user adjustable. Resistive dividers R1, R2, R3, R4 and R5, R6, R7 may be used to set the trigger threshold for the onboard comparator. As specified, the board should safely handle 400V at the HV inputs (untested). Diode D1 begins conducting when approximately 200V is present at HV inputs - effectively limiting the input voltage of the comparator.
@@ -62,7 +64,7 @@ There is significant room for improvement of the TSAL-HVM as made clear by the f
 If one can assume that the Tractive System is always capacitive (large capacitors at the motor driver power-input) then the HVM may be redesigned to check for the presence of capacitance at its measurement terminals using the Grounded Specimen Test method.
 
 ## Indicator module (DRV)
-The Indicator module is powered by the GLVS and controls the behaviour of the red/green TSAL. It is controlled by a single input which is pulled low by the action of the HVM. Each channel is capable of several amps and should be suitable for driving 12V LED assemblies or even incandescent bulbs.
+The Indicator module is powered by the GLVS and controls the behaviour of the red/green TSAL. It is controlled by a single input which is pulled low by the action of the HVM. Each output channel is capable of several amps and should be suitable for driving 12V LED assemblies or even incandescent bulbs.
 
 ### Pinout
 
