@@ -62,31 +62,13 @@ There is significant room for improvement of the TSAL-HVM as made clear by the f
 If one can assume that the Tractive System is always capacitive (large capacitors at the motor driver power-input) then the HVM may be redesigned to check for the presence of capacitance at its measurement terminals using the Grounded Specimen Test method.
 
 ## Indicator module (DRV)
-![](TSAL-DRV/render.png)
-
 The Indicator module is powered by the GLVS and controls the behaviour of the red/green TSAL. It is controlled by a single input which is pulled low by the action of the HVM. Each channel is capable of several amps and should be suitable for driving 12V LED assemblies or even incandescent bulbs.
 
 ### Pinout
 
-| J1  | LED Connection |
-|-----|----------------|
-| 1   | GRN+           |
-| 2   | GRN+           |
-| 3   | GRN-           |
-| 4   | GRN-           |
-| 5   | RED+           |
-| 6   | RED+           |
-| 7   | RED-           |
-| 8   | RED-           |
+![](TSAL-DRV/tsal-drv-pinout.jpg)
 
-| J2 |                     |
-|----|---------------------|
-| 1  | +12V                |
-| 2  | GND                 |
-| 3  | VHI signal from HVM |
-| 4  | N.C.                |
-
-### Design Justification
+### Design Notes
 The heart of the driver module is the complementary operation of the timer (U1) and the P-Channel MOSFET (Q1). The VHI signal effectively selects which of these components should be active.
 
 When VHI (J2) is pulled to ground, Q1 switches on - driving VLO indicator LED (D2) and powering the offboard, green TSAL LEDs (J1). A low signal at VHI also holds the reset pin of the U1 low, disabling its output.
@@ -97,4 +79,4 @@ Power to the TSAL-DRV is unregulated, since all components are sufficiently robu
 
 ### Known issues
 The two power MOSFETs are a little close together. So close in fact that they could feasibly touch given the tolerances of fasteners and 3.2mm drilled holes.
-Nothing should be *immediately* damaged if the tabs of the MOSFETs touch. However, any difference in switching time will cause high-current through both transistors whenever the state of VHI changes. This is because the MOSFET drains will be connected together so there will be a momentary current path from GLV+ through Q1, Q2, to ground during any overlap in switching time.
+Nothing should be *immediately* damaged if the tabs of the MOSFETs touch. However, any difference in switching time will cause momentary high-current through both transistors whenever the state of VHI changes. This is because the MOSFET drains will be connected together so there will be a momentary current path from GLV+ through Q1, Q2, to ground during any overlap in switching time.
