@@ -825,7 +825,7 @@ U 1 1 5D8FEFDB
 P 1550 6650
 F 0 "J3" H 1522 6532 50  0000 R CNN
 F 1 "Conn_01x04_Male" H 1522 6623 50  0000 R CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 1550 6650 50  0001 C CNN
+F 2 "MOLEX-MiniFitJr-4.2mm:Molex-Mini-Fit-Jr-4-pin-P4.2mm-RowP4.2mm" H 1550 6650 50  0001 C CNN
 F 3 "~" H 1550 6650 50  0001 C CNN
 	1    1550 6650
 	1    0    0    1   
@@ -929,7 +929,7 @@ Wire Wire Line
 	6050 3250 6800 3250
 NoConn ~ 7400 4100
 Text Notes 5000 1200 0    59   ~ 12
-42V
+48V
 Text Notes 6450 1200 0    59   ~ 12
 12V
 $EndSCHEMATC
