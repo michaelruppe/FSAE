@@ -8,7 +8,7 @@ The *Tractive System Active Light* is a red/green indicator light that indicates
 ![](overview.png)
 
 ## High-Voltage Measurement (HVM)
-![](TSAL-HVM/render.png)
+![](TSAL-HVM/render-tsal-hvm-v1.png)
 
 The HVM is located in the accumulator and measures the TS-voltage. The status of the TS-voltage is output by a open-collector style output (switched relay contact to ground).
 
