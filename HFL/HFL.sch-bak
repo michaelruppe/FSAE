@@ -1877,7 +1877,15 @@ Wire Wire Line
 Wire Wire Line
 	11750 4350 11950 4350
 Wire Wire Line
+	11600 7500 11600 7300
+Wire Wire Line
 	11600 5250 11200 5250
+Connection ~ 11600 7100
+Wire Wire Line
+	11600 7100 11600 5250
+Connection ~ 11600 7300
+Wire Wire Line
+	11600 7300 11600 7100
 Connection ~ 11200 5250
 $Comp
 L power:GND #PWR026
@@ -1971,12 +1979,17 @@ $EndComp
 Wire Wire Line
 	7600 8300 7800 8300
 Wire Wire Line
-	6750 8950 7700 8950
+	6750 8950 7850 8950
 Connection ~ 7800 8300
 Wire Wire Line
 	7800 8300 8450 8300
 Wire Wire Line
+	7850 8950 7850 8000
+Wire Wire Line
 	7850 8000 7800 8000
+Connection ~ 7850 8950
+Wire Wire Line
+	7850 8950 7900 8950
 Connection ~ 7800 8000
 Wire Wire Line
 	7700 8650 7700 8750
@@ -1986,30 +1999,21 @@ Connection ~ 7750 8650
 Wire Wire Line
 	7750 8650 8800 8650
 Wire Wire Line
-	7800 8750 7800 8300
-Wire Wire Line
-	7800 8750 8500 8750
-Connection ~ 7800 8750
-Wire Wire Line
-	6750 8750 7800 8750
-Connection ~ 7700 8950
-Connection ~ 7850 8850
-Wire Wire Line
-	7850 8850 7850 8000
-Wire Wire Line
-	7850 8850 8200 8850
-Wire Wire Line
-	7700 8950 7900 8950
-Wire Wire Line
-	6750 8850 7700 8850
-Wire Wire Line
-	7700 8850 7850 8850
-Wire Wire Line
-	7700 8750 7700 8950
+	7700 8750 7700 8850
 Wire Bus Line
 	11350 1000 11350 3350
 Wire Bus Line
 	1700 1000 1700 5300
 Wire Wire Line
-	11600 5250 11600 7500
+	6750 8850 7700 8850
+Connection ~ 7700 8850
+Wire Wire Line
+	7800 8750 7800 8300
+Wire Wire Line
+	7800 8750 8500 8750
+Connection ~ 7800 8750
+Wire Wire Line
+	7700 8850 8200 8850
+Wire Wire Line
+	6750 8750 7800 8750
 $EndSCHEMATC

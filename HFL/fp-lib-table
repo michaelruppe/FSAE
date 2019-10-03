@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name HFL)(type KiCad)(uri ${KIPRJMOD}/HFL.pretty)(options "")(descr ""))
+  (lib (name Mini-Fit-Jr-4.20mm-pitch)(type KiCad)(uri ${KIPRJMOD}/Mini-Fit-Jr-4.20mm-pitch.pretty)(options "")(descr ""))
 )
