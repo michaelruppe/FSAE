@@ -144,17 +144,6 @@ Wire Wire Line
 Wire Wire Line
 	4300 7000 4300 6650
 $Comp
-L Device:Fuse_Small F1
-U 1 1 5D49E154
-P 2200 7100
-F 0 "F1" H 2200 7285 50  0000 C CNN
-F 1 "Fuse_Small" H 2200 7194 50  0000 C CNN
-F 2 "Fuse:Fuse_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 2200 7100 50  0001 C CNN
-F 3 "~" H 2200 7100 50  0001 C CNN
-	1    2200 7100
-	1    0    0    -1  
-$EndComp
-$Comp
 L TSAL-HVM:SPAN02A-12 U1
 U 1 1 5D491A5C
 P 3550 7050
@@ -548,8 +537,6 @@ Wire Wire Line
 	2700 7100 3000 7100
 Wire Wire Line
 	4150 3850 5150 3850
-Wire Wire Line
-	2300 7100 2350 7100
 $Comp
 L Device:D D1
 U 1 1 5D6B78F3
@@ -588,7 +575,7 @@ L Isolator:4N35 U5
 U 1 1 5D8BAFD9
 P 7100 4200
 F 0 "U5" H 7100 4525 50  0000 C CNN
-F 1 "8021" H 7100 4434 50  0000 C CNN
+F 1 "MOC8021" H 7100 4434 50  0000 C CNN
 F 2 "Package_DIP:DIP-6_W7.62mm" H 6900 4000 50  0001 L CIN
 F 3 "https://www.vishay.com/docs/81181/4n35.pdf" H 7100 4200 50  0001 L CNN
 	1    7100 4200
@@ -837,8 +824,6 @@ Wire Wire Line
 Connection ~ 2700 6800
 Wire Wire Line
 	1900 6750 1900 7100
-Wire Wire Line
-	1900 7100 2100 7100
 Wire Notes Line
 	1350 7650 4900 7650
 Wire Notes Line
@@ -932,4 +917,6 @@ Text Notes 5000 1200 0    59   ~ 12
 48V
 Text Notes 6450 1200 0    59   ~ 12
 12V
+Wire Wire Line
+	1900 7100 2350 7100
 $EndSCHEMATC
