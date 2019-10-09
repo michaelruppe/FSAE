@@ -402,8 +402,6 @@ Wire Wire Line
 	1900 6750 1750 6750
 Wire Wire Line
 	1900 6550 1800 6550
-Text GLabel 1900 6550 2    50   Input ~ 0
-VHI
 $Comp
 L Connector:Conn_01x02_Male J4
 U 1 1 5D64AFE8
@@ -426,10 +424,6 @@ F 3 "~" H 6800 4550 50  0001 C CNN
 	1    6800 4550
 	0    -1   -1   0   
 $EndComp
-Text GLabel 7550 4300 2    50   Input ~ 0
--Vin
-Text GLabel 7550 4100 2    50   Input ~ 0
-VHI
 Connection ~ 5750 4500
 $Comp
 L Transistor_FET:2N7002 Q1
@@ -820,7 +814,7 @@ $EndComp
 Wire Wire Line
 	2700 6650 2700 6800
 Wire Wire Line
-	1750 6650 2700 6650
+	1750 6650 2250 6650
 Connection ~ 2700 6800
 Wire Wire Line
 	1900 6750 1900 7100
@@ -895,8 +889,6 @@ Wire Wire Line
 Connection ~ 1800 6550
 Wire Wire Line
 	1800 6550 1750 6550
-Text GLabel 2700 6650 2    50   Input ~ 0
--Vin
 $Comp
 L power:GND #PWR0102
 U 1 1 5DA7240B
@@ -919,4 +911,33 @@ Text Notes 6450 1200 0    59   ~ 12
 12V
 Wire Wire Line
 	1900 7100 2350 7100
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5DA48508
+P 2250 6650
+F 0 "#PWR?" H 2250 6450 50  0001 C CNN
+F 1 "GNDPWR" H 2254 6496 50  0000 C CNN
+F 2 "" H 2250 6600 50  0001 C CNN
+F 3 "" H 2250 6600 50  0001 C CNN
+	1    2250 6650
+	1    0    0    -1  
+$EndComp
+Connection ~ 2250 6650
+Wire Wire Line
+	2250 6650 2700 6650
+$Comp
+L power:GNDPWR #PWR?
+U 1 1 5DA49E67
+P 7550 4300
+F 0 "#PWR?" H 7550 4100 50  0001 C CNN
+F 1 "GNDPWR" H 7554 4146 50  0000 C CNN
+F 2 "" H 7550 4250 50  0001 C CNN
+F 3 "" H 7550 4250 50  0001 C CNN
+	1    7550 4300
+	1    0    0    -1  
+$EndComp
+Text Label 1900 6550 0    59   ~ 0
+VHI
+Text Label 7550 4100 0    59   ~ 0
+VHI
 $EndSCHEMATC
