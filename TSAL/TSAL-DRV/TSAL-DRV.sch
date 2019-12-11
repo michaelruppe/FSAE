@@ -31,7 +31,7 @@ U 1 1 5D4C7C73
 P 2550 2350
 F 0 "J1" H 2658 2831 50  0000 C CNN
 F 1 "Conn_01x08_Male" H 2658 2740 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-08A2_2x04_P4.20mm_Vertical" H 2550 2350 50  0001 C CNN
+F 2 "Mini-Fit-Jr-4.20mm-pitch:Molex-Mini-Fit-Jr-8-pin-P4.2mm-RowP4.2mm" H 2550 2350 50  0001 C CNN
 F 3 "~" H 2550 2350 50  0001 C CNN
 	1    2550 2350
 	1    0    0    -1  
@@ -102,7 +102,7 @@ U 1 1 5D4E729A
 P 7800 5700
 F 0 "C3" H 7915 5746 50  0000 L CNN
 F 1 "1u" H 7915 5655 50  0000 L CNN
-F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.42x1.75mm_HandSolder" H 7838 5550 50  0001 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric" H 7838 5550 50  0001 C CNN
 F 3 "~" H 7800 5700 50  0001 C CNN
 	1    7800 5700
 	1    0    0    -1  
@@ -284,12 +284,12 @@ $EndComp
 $Comp
 L power:+12V #PWR0102
 U 1 1 5D535837
-P 1300 3450
-F 0 "#PWR0102" H 1300 3300 50  0001 C CNN
-F 1 "+12V" V 1315 3578 50  0000 L CNN
-F 2 "" H 1300 3450 50  0001 C CNN
-F 3 "" H 1300 3450 50  0001 C CNN
-	1    1300 3450
+P 1150 3450
+F 0 "#PWR0102" H 1150 3300 50  0001 C CNN
+F 1 "+12V" V 1165 3578 50  0000 L CNN
+F 2 "" H 1150 3450 50  0001 C CNN
+F 3 "" H 1150 3450 50  0001 C CNN
+	1    1150 3450
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -343,7 +343,7 @@ U 1 1 5D515F05
 P 800 3900
 F 0 "J2" H 908 4181 50  0000 C CNN
 F 1 "Conn_01x03_Male" H 908 4090 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-04A_2x02_P4.20mm_Vertical" H 800 3900 50  0001 C CNN
+F 2 "Mini-Fit-Jr-4.20mm-pitch:Molex-Mini-Fit-Jr-4-pin-P4.2mm-RowP4.2mm" H 800 3900 50  0001 C CNN
 F 3 "~" H 800 3900 50  0001 C CNN
 	1    800  3900
 	1    0    0    -1  
@@ -353,11 +353,9 @@ Wire Wire Line
 Wire Wire Line
 	1150 3800 1150 3450
 Wire Wire Line
-	1150 3450 1300 3450
-Wire Wire Line
 	1000 3900 1250 3900
 Wire Wire Line
-	1250 3900 1250 3600
+	1250 3900 1250 3750
 $Comp
 L power:GND #PWR0106
 U 1 1 5D4FD6FD
@@ -442,15 +440,6 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2150 3200 50  0001 C C
 	1    2050 3450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1300 3450 1600 3450
-Connection ~ 1300 3450
-Wire Wire Line
-	1500 3600 1500 3750
-Wire Wire Line
-	1500 3750 1600 3750
-Wire Wire Line
-	1250 3600 1500 3600
 Connection ~ 2050 3750
 $Comp
 L Device:C C4
@@ -463,7 +452,6 @@ F 3 "~" H 1600 3600 50  0001 C CNN
 	1    1600 3600
 	1    0    0    -1  
 $EndComp
-Connection ~ 1600 3450
 Wire Wire Line
 	1600 3450 1750 3450
 Connection ~ 1600 3750
@@ -691,4 +679,23 @@ F 3 "https://www.fairchildsemi.com/datasheets/2N/2N7002.pdf" H 8700 5850 50  000
 	1    8700 5850
 	1    0    0    -1  
 $EndComp
+$Comp
+L Device:D D4
+U 1 1 5DA0BE1A
+P 1400 3450
+F 0 "D4" H 1400 3234 50  0000 C CNN
+F 1 "D" H 1400 3325 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 1400 3450 50  0001 C CNN
+F 3 "~" H 1400 3450 50  0001 C CNN
+	1    1400 3450
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1250 3450 1150 3450
+Connection ~ 1150 3450
+Wire Wire Line
+	1550 3450 1600 3450
+Connection ~ 1600 3450
+Wire Wire Line
+	1250 3750 1600 3750
 $EndSCHEMATC

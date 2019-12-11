@@ -6,8 +6,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "TSAL HV Measurement"
-Date "2019-09-22"
-Rev "2"
+Date "2019-11-08"
+Rev "2.1"
 Comp "NU Racing (UoN)"
 Comment1 "Michael Ruppe"
 Comment2 "github.com/michaelruppe/FSAE"
@@ -693,7 +693,7 @@ L Device:R R13
 U 1 1 5D90BA8C
 P 5900 1700
 F 0 "R13" H 5970 1746 50  0000 L CNN
-F 1 "47k" H 5970 1655 50  0000 L CNN
+F 1 "51k" H 5970 1655 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 5830 1700 50  0001 C CNN
 F 3 "~" H 5900 1700 50  0001 C CNN
 	1    5900 1700
@@ -704,7 +704,7 @@ L Device:R R11
 U 1 1 5D90CF79
 P 4450 1700
 F 0 "R11" H 4520 1746 50  0000 L CNN
-F 1 "202k" H 4520 1655 50  0000 L CNN
+F 1 "470k" H 4520 1655 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4380 1700 50  0001 C CNN
 F 3 "~" H 4450 1700 50  0001 C CNN
 	1    4450 1700
@@ -715,7 +715,7 @@ L Device:R R12
 U 1 1 5D90D479
 P 4900 1400
 F 0 "R12" H 4970 1446 50  0000 L CNN
-F 1 "6k04" H 4970 1355 50  0000 L CNN
+F 1 "6k2" H 4970 1355 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 4830 1400 50  0001 C CNN
 F 3 "~" H 4900 1400 50  0001 C CNN
 	1    4900 1400
@@ -726,7 +726,7 @@ L Device:R R16
 U 1 1 5D90D9F0
 P 6350 1400
 F 0 "R16" H 6420 1446 50  0000 L CNN
-F 1 "6k04" H 6420 1355 50  0000 L CNN
+F 1 "6k2" H 6420 1355 50  0000 L CNN
 F 2 "Resistor_SMD:R_1206_3216Metric_Pad1.42x1.75mm_HandSolder" V 6280 1400 50  0001 C CNN
 F 3 "~" H 6350 1400 50  0001 C CNN
 	1    6350 1400
@@ -906,9 +906,7 @@ Wire Wire Line
 	6050 3250 6800 3250
 NoConn ~ 7400 4100
 Text Notes 5000 1200 0    59   ~ 12
-48V
-Text Notes 6450 1200 0    59   ~ 12
-12V
+97V
 Wire Wire Line
 	1900 7100 2350 7100
 $Comp
@@ -940,4 +938,8 @@ Text Label 1900 6550 0    59   ~ 0
 VHI
 Text Label 7550 4100 0    59   ~ 0
 VHI
+Text Notes 6450 1200 0    59   ~ 12
+12V
+Text Notes 3650 5350 0    59   ~ 0
+Zener provisioned\nnot commissioned
 $EndSCHEMATC
