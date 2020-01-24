@@ -1,0 +1,196 @@
+EESchema Schematic File Version 4
+EELAYER 29 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title ""
+Date ""
+Rev ""
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Transistor_FET:IRF9540N Q?
+U 1 1 5E2A5391
+P 4900 2500
+F 0 "Q?" V 5243 2500 50  0000 C CNN
+F 1 "IRF9540N" V 5152 2500 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5100 2425 50  0001 L CIN
+F 3 "http://www.irf.com/product-info/datasheets/data/irf9540n.pdf" H 4900 2500 50  0001 L CNN
+	1    4900 2500
+	0    1    -1   0   
+$EndComp
+$Comp
+L Relay:DIPxx-1Axx-11x K?
+U 1 1 5E2A80C6
+P 3800 2600
+F 0 "K?" V 4267 2600 50  0000 C CNN
+F 1 "DIPxx-1Axx-11x" V 4176 2600 50  0000 C CNN
+F 2 "Relay_THT:Relay_StandexMeder_DIP_LowProfile" H 4150 2550 50  0001 L CNN
+F 3 "https://standexelectronics.com/wp-content/uploads/datasheet_reed_relay_DIP.pdf" H 3800 2600 50  0001 C CNN
+	1    3800 2600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R?
+U 1 1 5E2AA584
+P 5600 2400
+F 0 "R?" V 5393 2400 50  0000 C CNN
+F 1 "PRECHARGE" V 5484 2400 50  0000 C CNN
+F 2 "" V 5530 2400 50  0001 C CNN
+F 3 "~" H 5600 2400 50  0001 C CNN
+	1    5600 2400
+	0    1    1    0   
+$EndComp
+$Comp
+L power:GND #PWR?
+U 1 1 5E2B070B
+P 4900 3900
+F 0 "#PWR?" H 4900 3650 50  0001 C CNN
+F 1 "GND" H 4905 3727 50  0000 C CNN
+F 2 "" H 4900 3900 50  0001 C CNN
+F 3 "" H 4900 3900 50  0001 C CNN
+	1    4900 3900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 2900 4900 2700
+$Comp
+L Device:R R1
+U 1 1 5E2B131C
+P 4750 2900
+F 0 "R1" V 4957 2900 50  0000 C CNN
+F 1 "10k" V 4866 2900 50  0000 C CNN
+F 2 "" V 4680 2900 50  0001 C CNN
+F 3 "~" H 4750 2900 50  0001 C CNN
+	1    4750 2900
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	4600 2900 4550 2900
+Wire Wire Line
+	4550 2900 4550 2400
+Wire Wire Line
+	4550 2400 4700 2400
+Wire Wire Line
+	4100 2400 4550 2400
+Connection ~ 4550 2400
+$Comp
+L Device:R R2
+U 1 1 5E2B2C12
+P 4900 3200
+F 0 "R2" H 4970 3246 50  0000 L CNN
+F 1 "10k" H 4970 3155 50  0000 L CNN
+F 2 "" V 4830 3200 50  0001 C CNN
+F 3 "~" H 4900 3200 50  0001 C CNN
+	1    4900 3200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 3050 4900 2900
+Connection ~ 4900 2900
+Wire Wire Line
+	5100 2400 5450 2400
+$Comp
+L Connector:Conn_01x02_Male J?
+U 1 1 5E2B849B
+P 2350 2300
+F 0 "J?" H 2458 2481 50  0000 C CNN
+F 1 "Conn_01x02_Male" H 2458 2390 50  0000 C CNN
+F 2 "" H 2350 2300 50  0001 C CNN
+F 3 "~" H 2350 2300 50  0001 C CNN
+	1    2350 2300
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2550 2400 3500 2400
+Wire Wire Line
+	2550 2300 3200 2300
+Wire Wire Line
+	3200 2300 3200 1850
+Wire Wire Line
+	3200 1850 6150 1850
+Wire Wire Line
+	6150 1850 6150 2400
+Wire Wire Line
+	6150 2400 5750 2400
+$Comp
+L power:GND #PWR?
+U 1 1 5E2B9C69
+P 4100 3900
+F 0 "#PWR?" H 4100 3650 50  0001 C CNN
+F 1 "GND" H 4105 3727 50  0000 C CNN
+F 2 "" H 4100 3900 50  0001 C CNN
+F 3 "" H 4100 3900 50  0001 C CNN
+	1    4100 3900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D?
+U 1 1 5E2BB9EB
+P 3800 3250
+F 0 "D?" H 3800 3466 50  0000 C CNN
+F 1 "D" H 3800 3375 50  0000 C CNN
+F 2 "" H 3800 3250 50  0001 C CNN
+F 3 "~" H 3800 3250 50  0001 C CNN
+	1    3800 3250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3950 3250 4100 3250
+Connection ~ 4100 3250
+Wire Wire Line
+	4100 3250 4100 2800
+Wire Wire Line
+	3650 3250 3350 3250
+Wire Wire Line
+	3350 3250 3350 2800
+Wire Wire Line
+	3350 2800 3500 2800
+$Comp
+L power:VCC #PWR?
+U 1 1 5E2BC903
+P 3350 2800
+F 0 "#PWR?" H 3350 2650 50  0001 C CNN
+F 1 "VCC" H 3367 2973 50  0000 C CNN
+F 2 "" H 3350 2800 50  0001 C CNN
+F 3 "" H 3350 2800 50  0001 C CNN
+	1    3350 2800
+	1    0    0    -1  
+$EndComp
+Connection ~ 3350 2800
+$Comp
+L Isolator:SFH617A-4X006 U?
+U 1 1 5E2BD270
+P 3800 3750
+F 0 "U?" H 3800 4075 50  0000 C CNN
+F 1 "SFH617A-4X006" H 3800 3984 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W10.16mm" H 3600 3550 50  0001 L CIN
+F 3 "http://www.vishay.com/docs/83740/sfh617a.pdf" H 3800 3750 50  0001 L CNN
+	1    3800 3750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Isolator:SFH617A-4X006 U?
+U 1 1 5E2BFFAC
+P 4600 3650
+F 0 "U?" H 4600 3975 50  0000 C CNN
+F 1 "SFH617A-4X006" H 4600 3884 50  0000 C CNN
+F 2 "Package_DIP:DIP-4_W10.16mm" H 4400 3450 50  0001 L CIN
+F 3 "http://www.vishay.com/docs/83740/sfh617a.pdf" H 4600 3650 50  0001 L CNN
+	1    4600 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4900 3350 4900 3550
+Wire Wire Line
+	4900 3750 4900 3900
+Wire Wire Line
+	4100 3900 4100 3850
+Wire Wire Line
+	4100 3250 4100 3650
+$EndSCHEMATC
