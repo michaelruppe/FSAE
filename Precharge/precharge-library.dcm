@@ -1,0 +1,13 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP GLV+
+D FSAE: Grounded Low Voltage
+K power-flag
+$ENDCMP
+#
+$CMP GLV-
+D FSAE: Grounded Low Voltage
+K power-flag
+$ENDCMP
+#
+#End Doc Library
