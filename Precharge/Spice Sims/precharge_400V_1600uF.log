@@ -1,0 +1,21 @@
+Circuit: * C:\Users\Michael\Desktop\FSAE\Precharge\Spice Sims\precharge_400V_1600uF.asc
+
+.OP point found by inspection.
+
+Date: Tue Mar 03 17:37:38 2020
+Total elapsed time: 0.043 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 2136
+traniter = 2136
+tranpoints = 1069
+accept = 1065
+rejected = 4
+matrix size = 4
+fillins = 0
+solver = Normal
+Matrix Compiler1: 64 bytes object code size  0.0/0.0/[0.0]
+Matrix Compiler2: 254 bytes object code size  0.0/0.0/[0.0]
+
