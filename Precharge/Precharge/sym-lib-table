@@ -1,4 +1,5 @@
 (sym_lib_table
   (lib (name precharge-library)(type Legacy)(uri ${KIPRJMOD}/precharge-library.lib)(options "")(descr ""))
   (lib (name SPAN02A)(type Legacy)(uri ${KIPRJMOD}/SPAN02A.lib)(options "")(descr ""))
+  (lib (name teensy)(type Legacy)(uri ${KIPRJMOD}/teensy_library/teensy.lib)(options "")(descr ""))
 )
