@@ -1,4 +1,4 @@
 (fp_lib_table
   (lib (name Precharge)(type KiCad)(uri ${KIPRJMOD}/Precharge.pretty)(options "")(descr ""))
-  (lib (name HFL)(type KiCad)(uri ${KIPRJMOD}/HFL.pretty)(options "")(descr ""))
+  (lib (name teensy)(type KiCad)(uri ${KIPRJMOD}/teensy.pretty)(options "")(descr ""))
 )
