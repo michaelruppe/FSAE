@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name TSAL-HVM)(type Legacy)(uri ${KIPRJMOD}/TSAL-HVM.lib)(options "")(descr ""))
+  (lib (name power-symbol-library)(type Legacy)(uri ${KIPRJMOD}/power-symbol-library.lib)(options "")(descr ""))
+)

@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name TSAL-HVM)(type KiCad)(uri ${KIPRJMOD}/TSAL-HVM.pretty)(options "")(descr ""))
+)
