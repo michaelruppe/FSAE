@@ -8422,8 +8422,6 @@ F 3 "~" H 8150 10450 50  0001 C CNN
 	1    8150 10450
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6650 10100 6800 10100
 Text Label 6250 10100 2    50   ~ 0
 FoutTS
 Wire Wire Line
@@ -9363,7 +9361,7 @@ L Device:R R39
 U 1 1 5EE4748A
 P 12800 2000
 F 0 "R39" V 12593 2000 50  0000 C CNN
-F 1 "100" V 12684 2000 50  0000 C CNN
+F 1 "470" V 12684 2000 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" V 12730 2000 50  0001 C CNN
 F 3 "~" H 12800 2000 50  0001 C CNN
 	1    12800 2000
@@ -9875,72 +9873,72 @@ NoConn ~ 15950 3200
 $Comp
 L Jumper:SolderJumper_2_Open JP1
 U 1 1 5EA8C32D
-P 950 7300
-F 0 "JP1" V 904 7368 50  0000 L CNN
-F 1 "SolderJumper_2_Open" V 995 7368 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 950 7300 50  0001 C CNN
-F 3 "~" H 950 7300 50  0001 C CNN
-	1    950  7300
+P 950 8150
+F 0 "JP1" V 904 8218 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 995 8218 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 950 8150 50  0001 C CNN
+F 3 "~" H 950 8150 50  0001 C CNN
+	1    950  8150
 	0    1    1    0   
 $EndComp
 $Comp
 L Jumper:SolderJumper_2_Open JP2
 U 1 1 5EA8DBB3
-P 1300 7300
-F 0 "JP2" V 1254 7368 50  0000 L CNN
-F 1 "SolderJumper_2_Open" V 1345 7368 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 1300 7300 50  0001 C CNN
-F 3 "~" H 1300 7300 50  0001 C CNN
-	1    1300 7300
+P 1300 8150
+F 0 "JP2" V 1254 8218 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 1345 8218 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 1300 8150 50  0001 C CNN
+F 3 "~" H 1300 8150 50  0001 C CNN
+	1    1300 8150
 	0    1    1    0   
 $EndComp
 $Comp
 L Jumper:SolderJumper_2_Open JP3
 U 1 1 5EA8E515
-P 1650 7300
-F 0 "JP3" V 1604 7368 50  0000 L CNN
-F 1 "SolderJumper_2_Open" V 1695 7368 50  0000 L CNN
-F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 1650 7300 50  0001 C CNN
-F 3 "~" H 1650 7300 50  0001 C CNN
-	1    1650 7300
+P 1650 8150
+F 0 "JP3" V 1604 8218 50  0000 L CNN
+F 1 "SolderJumper_2_Open" V 1695 8218 50  0000 L CNN
+F 2 "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm" H 1650 8150 50  0001 C CNN
+F 3 "~" H 1650 8150 50  0001 C CNN
+	1    1650 8150
 	0    1    1    0   
 $EndComp
 $Comp
 L precharge-library:GLV- #PWR04
 U 1 1 5EA8E9E8
-P 1300 7600
-F 0 "#PWR04" H 1300 7450 50  0001 C CNN
-F 1 "GLV-" H 1315 7773 50  0000 C CNN
-F 2 "" H 1300 7600 50  0001 C CNN
-F 3 "" H 1300 7600 50  0001 C CNN
-	1    1300 7600
+P 1300 8450
+F 0 "#PWR04" H 1300 8300 50  0001 C CNN
+F 1 "GLV-" H 1315 8623 50  0000 C CNN
+F 2 "" H 1300 8450 50  0001 C CNN
+F 3 "" H 1300 8450 50  0001 C CNN
+	1    1300 8450
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	950  7450 950  7550
+	950  8300 950  8400
 Wire Wire Line
-	950  7550 1300 7550
+	950  8400 1300 8400
 Wire Wire Line
-	1300 7550 1300 7600
+	1300 8400 1300 8450
 Wire Wire Line
-	1300 7550 1650 7550
+	1300 8400 1650 8400
 Wire Wire Line
-	1650 7550 1650 7450
-Connection ~ 1300 7550
+	1650 8400 1650 8300
+Connection ~ 1300 8400
 Wire Wire Line
-	1300 7450 1300 7550
-Text Label 950  7000 1    50   ~ 0
+	1300 8300 1300 8400
+Text Label 950  7850 1    50   ~ 0
 CFG0
-Text Label 1300 7000 1    50   ~ 0
+Text Label 1300 7850 1    50   ~ 0
 CFG1
-Text Label 1650 7000 1    50   ~ 0
+Text Label 1650 7850 1    50   ~ 0
 CFG2
 Wire Wire Line
-	950  7150 950  7000
+	950  8000 950  7850
 Wire Wire Line
-	1300 7150 1300 7000
+	1300 8000 1300 7850
 Wire Wire Line
-	1650 7150 1650 7000
+	1650 8000 1650 7850
 Connection ~ 14900 2900
 Wire Wire Line
 	14900 2900 15200 2900
@@ -9977,20 +9975,6 @@ F 3 "~" H 11950 9900 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	11750 9900 11650 9900
-$Comp
-L Connector:TestPoint TP1
-U 1 1 5E74ADF1
-P 6800 10100
-F 0 "TP1" H 6742 10126 50  0000 R CNN
-F 1 "TestPoint" H 6742 10217 50  0000 R CNN
-F 2 "TestPoint:TestPoint_Loop_D2.50mm_Drill1.0mm_LowProfile" H 7000 10100 50  0001 C CNN
-F 3 "~" H 7000 10100 50  0001 C CNN
-	1    6800 10100
-	-1   0    0    1   
-$EndComp
-Connection ~ 6800 10100
-Wire Wire Line
-	6800 10100 7100 10100
 $Comp
 L Connector:TestPoint TP2
 U 1 1 5E74BE18
@@ -10053,8 +10037,8 @@ $Comp
 L Device:R R43
 U 1 1 5E8C8E81
 P 13750 5200
-F 0 "R43" V 13543 5200 50  0000 C CNN
-F 1 "R" V 13634 5200 50  0000 C CNN
+F 0 "R43" V 13850 5200 50  0000 C CNN
+F 1 "R" V 13900 5200 50  0000 C CNN
 F 2 "Precharge:Chassis_Resistor_TE_Connectivity_HSA25" V 13680 5200 50  0001 C CNN
 F 3 "~" H 13750 5200 50  0001 C CNN
 	1    13750 5200
@@ -10068,4 +10052,96 @@ Wire Wire Line
 	13700 5350 13600 5350
 Wire Wire Line
 	13600 5350 13600 5200
+Wire Wire Line
+	6800 10100 7100 10100
+Wire Wire Line
+	6650 10100 6800 10100
+Connection ~ 6800 10100
+$Comp
+L Connector:TestPoint TP1
+U 1 1 5E74ADF1
+P 6800 10100
+F 0 "TP1" H 6742 10126 50  0000 R CNN
+F 1 "TestPoint" H 6742 10217 50  0000 R CNN
+F 2 "TestPoint:TestPoint_Loop_D2.50mm_Drill1.0mm_LowProfile" H 7000 10100 50  0001 C CNN
+F 3 "~" H 7000 10100 50  0001 C CNN
+	1    6800 10100
+	-1   0    0    1   
+$EndComp
+Text Label 5700 4700 0    50   ~ 0
+Faccu
+Text Label 5700 4800 0    50   ~ 0
+Fts
+Text Label 5700 4900 0    50   ~ 0
+PRECHG
+Text Label 5700 5000 0    50   ~ 0
+SHTDN_CTRL
+Text Label 2650 6100 2    50   ~ 0
+PDOC_OK
+$Comp
+L Device:R R?
+U 1 1 5E7DA1AB
+P 2650 6350
+F 0 "R?" V 2443 6350 50  0000 C CNN
+F 1 "20k" V 2534 6350 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 2580 6350 50  0001 C CNN
+F 3 "~" H 2650 6350 50  0001 C CNN
+	1    2650 6350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 6200 2650 6100
+$Comp
+L Device:R R?
+U 1 1 5E7F9892
+P 2650 6700
+F 0 "R?" V 2443 6700 50  0000 C CNN
+F 1 "7k" V 2534 6700 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 2580 6700 50  0001 C CNN
+F 3 "~" H 2650 6700 50  0001 C CNN
+	1    2650 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2650 6550 2650 6500
+$Comp
+L precharge-library:GLV- #PWR?
+U 1 1 5E816F1D
+P 2650 6850
+F 0 "#PWR?" H 2650 6700 50  0001 C CNN
+F 1 "GLV-" H 2665 7023 50  0000 C CNN
+F 2 "" H 2650 6850 50  0001 C CNN
+F 3 "" H 2650 6850 50  0001 C CNN
+	1    2650 6850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2650 6500 2900 6500
+Wire Wire Line
+	2900 6500 2900 6200
+Wire Wire Line
+	2900 6200 3050 6200
+Connection ~ 2650 6500
+Wire Wire Line
+	1750 3500 2350 3500
+Wire Wire Line
+	2350 3500 2350 3600
+Wire Wire Line
+	2350 3600 3050 3600
+Wire Wire Line
+	3050 3700 1750 3700
+Wire Wire Line
+	1750 3700 1750 3850
+Wire Wire Line
+	1750 4150 1900 4150
+Wire Wire Line
+	1900 4150 1900 3800
+Wire Wire Line
+	1900 3800 3050 3800
+Wire Wire Line
+	3050 3900 2000 3900
+Wire Wire Line
+	2000 3900 2000 4450
+Wire Wire Line
+	2000 4450 1750 4450
 $EndSCHEMATC
