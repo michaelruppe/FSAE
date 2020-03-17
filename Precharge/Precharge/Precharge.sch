@@ -10068,21 +10068,21 @@ F 3 "~" H 7000 10100 50  0001 C CNN
 	1    6800 10100
 	-1   0    0    1   
 $EndComp
-Text Label 5700 4700 0    50   ~ 0
+Text Label 5600 5100 0    50   ~ 0
 Faccu
-Text Label 5700 4800 0    50   ~ 0
+Text Label 5600 5200 0    50   ~ 0
 Fts
-Text Label 5700 4900 0    50   ~ 0
+Text Label 5600 5300 0    50   ~ 0
 PRECHG
-Text Label 5700 5000 0    50   ~ 0
+Text Label 5600 5400 0    50   ~ 0
 SHTDN_CTRL
 Text Label 2650 6100 2    50   ~ 0
 PDOC_OK
 $Comp
-L Device:R R?
+L Device:R R44
 U 1 1 5E7DA1AB
 P 2650 6350
-F 0 "R?" V 2443 6350 50  0000 C CNN
+F 0 "R44" V 2443 6350 50  0000 C CNN
 F 1 "20k" V 2534 6350 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" V 2580 6350 50  0001 C CNN
 F 3 "~" H 2650 6350 50  0001 C CNN
@@ -10092,10 +10092,10 @@ $EndComp
 Wire Wire Line
 	2650 6200 2650 6100
 $Comp
-L Device:R R?
+L Device:R R45
 U 1 1 5E7F9892
 P 2650 6700
-F 0 "R?" V 2443 6700 50  0000 C CNN
+F 0 "R45" V 2443 6700 50  0000 C CNN
 F 1 "7k" V 2534 6700 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" V 2580 6700 50  0001 C CNN
 F 3 "~" H 2650 6700 50  0001 C CNN
@@ -10105,10 +10105,10 @@ $EndComp
 Wire Wire Line
 	2650 6550 2650 6500
 $Comp
-L precharge-library:GLV- #PWR?
+L precharge-library:GLV- #PWR047
 U 1 1 5E816F1D
 P 2650 6850
-F 0 "#PWR?" H 2650 6700 50  0001 C CNN
+F 0 "#PWR047" H 2650 6700 50  0001 C CNN
 F 1 "GLV-" H 2665 7023 50  0000 C CNN
 F 2 "" H 2650 6850 50  0001 C CNN
 F 3 "" H 2650 6850 50  0001 C CNN
@@ -10144,4 +10144,24 @@ Wire Wire Line
 	2000 3900 2000 4450
 Wire Wire Line
 	2000 4450 1750 4450
+Wire Wire Line
+	5600 5100 5250 5100
+Wire Wire Line
+	5250 5200 5600 5200
+Wire Wire Line
+	5600 5300 5250 5300
+Wire Wire Line
+	5250 5400 5600 5400
+Text Label 2850 4200 2    50   ~ 0
+CFG0
+Text Label 2850 4300 2    50   ~ 0
+CFG1
+Text Label 2850 4400 2    50   ~ 0
+CFG2
+Wire Wire Line
+	2850 4400 3050 4400
+Wire Wire Line
+	3050 4300 2850 4300
+Wire Wire Line
+	2850 4200 3050 4200
 $EndSCHEMATC
