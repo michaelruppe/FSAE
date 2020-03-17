@@ -30,5 +30,7 @@ _autosave-*
 */gerbers/
 *.zip
 
-# 3D Cad files
+# Ignore *output* 3D Cad files, include files used for PCB renders
 *.step
+!**/CAD files/*.step
+!**/CAD-files/*.step
