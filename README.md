@@ -9,8 +9,9 @@ A light that indicates presence of dangerous voltage within the Tractive System
 
 Watch a [video walkthrough](https://youtu.be/bgW9xbbovIY) explaining the circuit operation and design decision.
 
- - HFL: Hard Fault Latch. Latches faults that require a power-cycle of the car to clear.
-
-
 ## [Precharge](Precharge)
 A device to precharge the Tractive System
+
+ ## [HFL (Hard Fault Latch)](HFL)
+
+ Latches momentary faults that are required to shutdown the EV.
