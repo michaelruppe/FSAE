@@ -190,14 +190,11 @@ Wire Wire Line
 	2400 2100 2800 2100
 Wire Wire Line
 	2800 2100 3100 2100
-Text Notes 950  2050 0    50   ~ 0
-Shutdown Circuit IN
 Wire Wire Line
 	2150 2150 2150 2100
 Wire Wire Line
 	1800 2050 1800 1800
 Connection ~ 1800 1800
-Connection ~ 2150 2150
 Text Label 1850 2900 0    50   ~ 0
 SHTDN_OUT
 $Comp
@@ -210,21 +207,6 @@ F 2 "" H 1800 1800 50  0001 C CNN
 F 3 "" H 1800 1800 50  0001 C CNN
 	1    1800 1800
 	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	850  2150 2150 2150
-Wire Wire Line
-	850  2050 1800 2050
-$Comp
-L Connector:Conn_01x08_Female J1
-U 1 1 5E5E8823
-P 650 2350
-F 0 "J1" H 542 2635 50  0000 C CNN
-F 1 "MicroFit" H 600 1950 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Micro-Fit_3.0_43045-0812_2x04_P3.00mm_Vertical" H 650 2350 50  0001 C CNN
-F 3 "~" H 650 2350 50  0001 C CNN
-	1    650  2350
-	-1   0    0    -1  
 $EndComp
 $Comp
 L precharge-library:G7L-2A-X-L K2
@@ -256,8 +238,6 @@ Wire Wire Line
 	15200 4700 15200 5200
 Connection ~ 15200 5200
 Wire Wire Line
-	850  2250 1800 2250
-Wire Wire Line
 	1800 2250 1800 2350
 $Comp
 L Device:R R8
@@ -273,10 +253,6 @@ $EndComp
 Wire Wire Line
 	1800 2350 1700 2350
 Connection ~ 1800 2350
-Wire Wire Line
-	1400 2350 850  2350
-Text Label 950  2350 0    50   ~ 0
-PRECH_STS
 $Comp
 L Device:D D8
 U 1 1 5E5E399D
@@ -367,10 +343,6 @@ F 3 "~" H 11650 2100 50  0001 C CNN
 	1    11650 2100
 	0    1    -1   0   
 $EndComp
-Text Label 950  2450 0    50   ~ 0
-PDOC_OK
-Wire Wire Line
-	950  2450 850  2450
 Text Notes 8550 1050 0    50   ~ 10
 PDOC - Thermal overload protection for precharge resistor
 Wire Notes Line width 8
@@ -10240,14 +10212,6 @@ Connection ~ -1250 5300
 Wire Wire Line
 	-1450 5000 -1250 5000
 Connection ~ -1250 5000
-Text Label 950  2750 0    50   ~ 0
-CANH
-Text Label 950  2650 0    50   ~ 0
-CANL
-Wire Wire Line
-	950  2650 850  2650
-Wire Wire Line
-	950  2750 850  2750
 Wire Wire Line
 	7200 6750 7200 7350
 Wire Wire Line
@@ -10399,10 +10363,57 @@ F 3 "https://www.vishay.com/docs/81181/4n35.pdf" H 5700 7650 50  0001 L CNN
 	1    5700 7650
 	-1   0    0    -1  
 $EndComp
+Text Notes 5500 800  0    50   ~ 0
+ToDo: Replace relay
+Wire Wire Line
+	800  2550 700  2550
+Text Label 800  2550 0    50   ~ 0
+PDOC_OK
+Wire Wire Line
+	800  2750 700  2750
+Wire Wire Line
+	800  2650 700  2650
+Text Label 800  2650 0    50   ~ 0
+CANL
+Text Label 800  2750 0    50   ~ 0
+CANH
+Text Label 800  2350 0    50   ~ 0
+PRECH_STS
+Wire Wire Line
+	1400 2350 700  2350
+Wire Wire Line
+	700  2250 1800 2250
+$Comp
+L Connector:Conn_01x08_Female J1
+U 1 1 5E5E8823
+P 500 2350
+F 0 "J1" H 392 2635 50  0000 C CNN
+F 1 "MicroFit" H 450 1950 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Micro-Fit_3.0_43045-0812_2x04_P3.00mm_Vertical" H 500 2350 50  0001 C CNN
+F 3 "~" H 500 2350 50  0001 C CNN
+	1    500  2350
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	700  2050 1800 2050
+Text Notes 800  2050 0    50   ~ 0
+Shutdown Circuit IN
+$Comp
+L precharge-library:GLV- #PWR0102
+U 1 1 5F0027C8
+P 1150 2450
+F 0 "#PWR0102" H 1150 2300 50  0001 C CNN
+F 1 "GLV-" H 1165 2623 50  0000 C CNN
+F 2 "" H 1150 2450 50  0001 C CNN
+F 3 "" H 1150 2450 50  0001 C CNN
+	1    1150 2450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	1150 2450 700  2450
+NoConn ~ 700  2150
 Wire Bus Line
 	500  4900 500  5150
 Wire Bus Line
 	2600 4150 2600 4300
-Text Notes 5500 800  0    50   ~ 0
-ToDo: Replace relay
 $EndSCHEMATC
