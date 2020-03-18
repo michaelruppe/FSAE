@@ -14,4 +14,8 @@ D FSAE: Grounded Low Voltage
 K power-flag
 $ENDCMP
 #
+$CMP LM331
+F http://www.ti.com/lit/ds/symlink/lm231.pdf
+$ENDCMP
+#
 #End Doc Library
