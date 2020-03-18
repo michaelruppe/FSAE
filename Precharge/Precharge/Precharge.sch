@@ -216,14 +216,14 @@ Wire Wire Line
 Wire Wire Line
 	850  2050 1800 2050
 $Comp
-L Connector:Conn_01x06_Female J1
+L Connector:Conn_01x08_Female J1
 U 1 1 5E5E8823
-P 650 2250
-F 0 "J1" H 542 2535 50  0000 C CNN
-F 1 "MicroFit" H 600 1850 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Micro-Fit_3.0_43045-0612_2x03_P3.00mm_Vertical" H 650 2250 50  0001 C CNN
-F 3 "~" H 650 2250 50  0001 C CNN
-	1    650  2250
+P 650 2350
+F 0 "J1" H 542 2635 50  0000 C CNN
+F 1 "MicroFit" H 600 1950 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Micro-Fit_3.0_43045-0612_2x04_P3.00mm_Vertical" H 650 2350 50  0001 C CNN
+F 3 "~" H 650 2350 50  0001 C CNN
+	1    650  2350
 	-1   0    0    -1  
 $EndComp
 $Comp
@@ -563,8 +563,6 @@ F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 4300 1300 50  0001 C C
 $EndComp
 Wire Wire Line
 	4500 1550 4650 1550
-Text Notes 12050 5050 0    50   ~ 0
-Resistor\nTHS50180RJ\nRated to sustain 20x overload for 1 second\n\nLoad profile for 400VDC, 1600uF total (refer to spice sims):\n0.0s: 18x overload\n0.2s:  5x overload
 $Comp
 L teensy:Teensy4.0 U2
 U 1 1 5E5F7CC5
@@ -8219,7 +8217,7 @@ P 7650 7350
 F 0 "U7" H 7625 7615 50  0000 C CNN
 F 1 "LM331" H 7625 7524 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 7700 7350 50  0001 C CNN
-F 3 "" H 7700 7350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm231.pdf" H 7700 7350 50  0001 C CNN
 	1    7650 7350
 	1    0    0    -1  
 $EndComp
@@ -8325,22 +8323,18 @@ VinAccu
 $Comp
 L Device:C C10
 U 1 1 5E6CBE25
-P 7000 7000
-F 0 "C10" H 7115 7046 50  0000 L CNN
-F 1 "1u" H 7115 6955 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7038 6850 50  0001 C CNN
-F 3 "~" H 7000 7000 50  0001 C CNN
-	1    7000 7000
-	1    0    0    -1  
+P 7000 6750
+F 0 "C10" H 7115 6796 50  0000 L CNN
+F 1 "1u" H 7115 6705 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 7038 6600 50  0001 C CNN
+F 3 "~" H 7000 6750 50  0001 C CNN
+	1    7000 6750
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7300 7350 7000 7350
+	7300 7350 7200 7350
 Wire Wire Line
-	7000 7350 7000 7150
-Wire Wire Line
-	7000 6850 7000 6750
-Wire Wire Line
-	7000 6750 8050 6750
+	7200 6750 8050 6750
 Wire Wire Line
 	8050 6750 8050 7550
 Wire Wire Line
@@ -8348,17 +8342,14 @@ Wire Wire Line
 $Comp
 L Device:R R14
 U 1 1 5E6D6EE6
-P 6700 6750
-F 0 "R14" V 6493 6750 50  0000 C CNN
-F 1 "47" V 6584 6750 50  0000 C CNN
-F 2 "Resistor_SMD:R_1206_3216Metric" V 6630 6750 50  0001 C CNN
-F 3 "~" H 6700 6750 50  0001 C CNN
-	1    6700 6750
+P 6600 6750
+F 0 "R14" V 6393 6750 50  0000 C CNN
+F 1 "47" V 6484 6750 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 6530 6750 50  0001 C CNN
+F 3 "~" H 6600 6750 50  0001 C CNN
+	1    6600 6750
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6850 6750 7000 6750
-Connection ~ 7000 6750
 $Comp
 L Device:R R13
 U 1 1 5E6ED40B
@@ -8385,7 +8376,7 @@ P 7450 9900
 F 0 "U6" H 7425 10165 50  0000 C CNN
 F 1 "LM331" H 7425 10074 50  0000 C CNN
 F 2 "Package_DIP:DIP-8_W7.62mm" H 7500 9900 50  0001 C CNN
-F 3 "" H 7500 9900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/lm231.pdf" H 7500 9900 50  0001 C CNN
 	1    7450 9900
 	1    0    0    -1  
 $EndComp
@@ -8489,22 +8480,16 @@ Connection ~ 8500 10000
 $Comp
 L Device:C C9
 U 1 1 5E717158
-P 6800 9550
-F 0 "C9" H 6915 9596 50  0000 L CNN
-F 1 "1u" H 6915 9505 50  0000 L CNN
-F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6838 9400 50  0001 C CNN
-F 3 "~" H 6800 9550 50  0001 C CNN
-	1    6800 9550
-	1    0    0    -1  
+P 6850 9300
+F 0 "C9" H 6965 9346 50  0000 L CNN
+F 1 "1u" H 6965 9255 50  0000 L CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 6888 9150 50  0001 C CNN
+F 3 "~" H 6850 9300 50  0001 C CNN
+	1    6850 9300
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	7100 9900 6800 9900
-Wire Wire Line
-	6800 9900 6800 9700
-Wire Wire Line
-	6800 9400 6800 9300
-Wire Wire Line
-	6800 9300 7850 9300
+	7100 9900 7000 9900
 Wire Wire Line
 	7850 9300 7850 10100
 Wire Wire Line
@@ -8520,9 +8505,6 @@ F 3 "~" H 6500 9300 50  0001 C CNN
 	1    6500 9300
 	0    -1   -1   0   
 $EndComp
-Wire Wire Line
-	6650 9300 6800 9300
-Connection ~ 6800 9300
 $Comp
 L Device:R R10
 U 1 1 5E717173
@@ -8535,12 +8517,6 @@ F 3 "~" H 6400 9750 50  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 Wire Wire Line
-	6550 9750 6700 9750
-Wire Wire Line
-	6700 9750 6700 10000
-Wire Wire Line
-	6700 10000 7100 10000
-Wire Wire Line
 	6150 9750 6200 9750
 Wire Wire Line
 	6200 9750 6200 9300
@@ -8552,7 +8528,7 @@ Wire Wire Line
 Wire Wire Line
 	6400 6750 6400 7200
 Wire Wire Line
-	6400 6750 6550 6750
+	6400 6750 6450 6750
 Connection ~ 6400 7200
 Wire Wire Line
 	6400 7200 6450 7200
@@ -9980,10 +9956,10 @@ $Comp
 L Device:R R43
 U 1 1 5E8C8E81
 P 13750 5200
-F 0 "R43" V 13850 5200 50  0000 C CNN
-F 1 "R" V 13900 5200 50  0000 C CNN
+F 0 "R43" V 13550 5200 50  0000 C CNN
+F 1 "HSA25390RJ" V 13650 5200 50  0000 C CNN
 F 2 "Precharge:Chassis_Resistor_TE_Connectivity_HSA25" V 13680 5200 50  0001 C CNN
-F 3 "~" H 13750 5200 50  0001 C CNN
+F 3 "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=1773035&DocType=DS&DocLang=English" H 13750 5200 50  0001 C CNN
 	1    13750 5200
 	0    1    1    0   
 $EndComp
@@ -10279,10 +10255,107 @@ F 3 "" H -500 5600 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	-500 5600 -500 5550
+Text Label -1450 5000 2    50   ~ 0
+CANH
+Text Label -1450 5300 2    50   ~ 0
+CANL
+$Comp
+L Device:R R?
+U 1 1 5E801FC8
+P -1250 5150
+F 0 "R?" V -1457 5150 50  0000 C CNN
+F 1 "160" V -1366 5150 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V -1320 5150 50  0001 C CNN
+F 3 "~" H -1250 5150 50  0001 C CNN
+	1    -1250 5150
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	-1000 5250 -1100 5250
+Wire Wire Line
+	-1100 5250 -1100 5300
+Wire Wire Line
+	-1100 5300 -1250 5300
+Wire Wire Line
+	-1250 5000 -1100 5000
+Wire Wire Line
+	-1100 5000 -1100 5050
+Wire Wire Line
+	-1100 5050 -1000 5050
+Wire Wire Line
+	-1250 5300 -1450 5300
+Connection ~ -1250 5300
+Wire Wire Line
+	-1450 5000 -1250 5000
+Connection ~ -1250 5000
+Text Label 950  2750 0    50   ~ 0
+CANH
+Text Label 950  2650 0    50   ~ 0
+CANL
+Wire Wire Line
+	950  2650 850  2650
+Wire Wire Line
+	950  2750 850  2750
+Wire Wire Line
+	7200 6750 7200 7350
+Wire Wire Line
+	6850 6750 6750 6750
+Wire Wire Line
+	7150 6750 7200 6750
+Connection ~ 7200 6750
+$Comp
+L Device:R R?
+U 1 1 5EA78AD8
+P 7000 6550
+F 0 "R?" V 6793 6550 50  0000 C CNN
+F 1 "100k" V 6884 6550 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 6930 6550 50  0001 C CNN
+F 3 "~" H 7000 6550 50  0001 C CNN
+	1    7000 6550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6850 6550 6850 6750
+Connection ~ 6850 6750
+Wire Wire Line
+	7150 6550 7200 6550
+Wire Wire Line
+	7200 6550 7200 6750
+Text Notes 13350 9800 0    118  ~ 24
+Resistors: Use 1% or better
+Wire Wire Line
+	6700 9300 6650 9300
+Wire Wire Line
+	7000 9300 7000 9900
+Wire Wire Line
+	7000 9300 7850 9300
+Connection ~ 7000 9300
+$Comp
+L Device:R R?
+U 1 1 5EB44DF8
+P 6850 9050
+F 0 "R?" V 6643 9050 50  0000 C CNN
+F 1 "100k" V 6734 9050 50  0000 C CNN
+F 2 "Resistor_SMD:R_1206_3216Metric" V 6780 9050 50  0001 C CNN
+F 3 "~" H 6850 9050 50  0001 C CNN
+	1    6850 9050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6700 9300 6700 9050
+Connection ~ 6700 9300
+Wire Wire Line
+	7000 9050 7000 9300
 Wire Bus Line
 	500  4900 500  5150
 Wire Bus Line
 	2600 4150 2600 4300
-Text Notes 6950 6450 0    118  ~ 24
-ToDo: FIX LM331 circuits
+Wire Wire Line
+	6700 10000 7100 10000
+Wire Wire Line
+	6700 9750 6700 10000
+Wire Wire Line
+	6550 9750 6700 9750
+Text Notes 6250 8400 0    50   ~ 0
+Rs = 14k7
 $EndSCHEMATC
