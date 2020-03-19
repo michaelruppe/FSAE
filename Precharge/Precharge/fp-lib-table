@@ -1,4 +1,5 @@
 (fp_lib_table
   (lib (name Precharge)(type KiCad)(uri ${KIPRJMOD}/Precharge.pretty)(options "")(descr ""))
   (lib (name teensy)(type KiCad)(uri ${KIPRJMOD}/teensy.pretty)(options "")(descr ""))
+  (lib (name Mini-Fit-Jr-4.20mm-pitch)(type KiCad)(uri ${KIPRJMOD}/Mini-Fit-Jr-4.20mm-pitch.pretty)(options "")(descr ""))
 )

@@ -502,20 +502,16 @@ Wire Wire Line
 Wire Wire Line
 	13700 5350 13700 5550
 $Comp
-L Connector:Conn_01x02_Female J2
+L Connector:Conn_01x04_Female HV
 U 1 1 5E7FDE53
-P 12750 5850
-F 0 "J2" H 12642 5525 50  0000 C CNN
-F 1 "HV" H 12642 5616 50  0000 C CNN
-F 2 "Connector_Molex:Molex_Mini-Fit_Jr_5566-02A_2x01_P4.20mm_Vertical" H 12750 5850 50  0001 C CNN
-F 3 "~" H 12750 5850 50  0001 C CNN
-	1    12750 5850
+P 12750 5750
+F 0 "HV" H 12750 5400 50  0000 C CNN
+F 1 "Mini-Fit_Jr_5566-04A" H 12750 5500 50  0000 C CNN
+F 2 "Mini-Fit-Jr-4.20mm-pitch:Molex-Mini-Fit-Jr-4-pin-P4.2mm-RowP4.2mm" H 12750 5750 50  0001 C CNN
+F 3 "~" H 12750 5750 50  0001 C CNN
+	1    12750 5750
 	-1   0    0    1   
 $EndComp
-Wire Wire Line
-	12950 5750 13100 5750
-Wire Wire Line
-	13100 5750 13100 5550
 Wire Wire Line
 	12950 5850 13100 5850
 Wire Wire Line
@@ -8564,8 +8560,6 @@ Wire Wire Line
 Connection ~ 7050 10300
 Wire Wire Line
 	7050 10300 7050 10700
-Wire Wire Line
-	13100 5550 13700 5550
 $Comp
 L SPAN02A:SPAN02A-12 U2
 U 1 1 5E88AFE9
@@ -10412,8 +10406,39 @@ $EndComp
 Wire Wire Line
 	1150 2450 700  2450
 NoConn ~ 700  2150
+Wire Wire Line
+	12950 5550 13700 5550
+$Comp
+L Connector:Conn_01x02_Female TS-
+U 1 1 5E78AE41
+P 12750 6600
+F 0 "TS-" H 12642 6785 50  0000 C CNN
+F 1 "Micro-Fit 43045-0212" H 12642 6694 50  0000 C CNN
+F 2 "Connector_Molex:Molex_Micro-Fit_3.0_43045-0212_2x01_P3.00mm_Vertical" H 12750 6600 50  0001 C CNN
+F 3 "~" H 12750 6600 50  0001 C CNN
+	1    12750 6600
+	-1   0    0    -1  
+$EndComp
+$Comp
+L power:GNDS #PWR?
+U 1 1 5E78E196
+P 13100 6700
+F 0 "#PWR?" H 13100 6450 50  0001 C CNN
+F 1 "GNDS" H 13105 6527 50  0000 C CNN
+F 2 "" H 13100 6700 50  0001 C CNN
+F 3 "" H 13100 6700 50  0001 C CNN
+	1    13100 6700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	13100 6700 12950 6700
+Wire Wire Line
+	12950 6600 13100 6600
+Wire Wire Line
+	13100 6600 13100 6700
 Wire Bus Line
 	500  4900 500  5150
 Wire Bus Line
 	2600 4150 2600 4300
+Connection ~ 13100 6700
 $EndSCHEMATC
