@@ -1,6 +1,6 @@
 # FSAE
 
-Hardware projects for the FSAE Electric 2019/2020 competition.
+Hardware projects for the FSAE Electric 2019/2020 competition (Australia).
 
 ## [TSAL](TSALv3)
 A light that indicates presence of dangerous voltage within the Tractive System
