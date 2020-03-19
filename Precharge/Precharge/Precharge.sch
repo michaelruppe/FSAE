@@ -10437,10 +10437,10 @@ Wire Wire Line
 Wire Wire Line
 	10950 5150 10950 5250
 $Comp
-L Device:R R?
+L Device:R R49
 U 1 1 5E8C35A3
 P 11450 5150
-F 0 "R?" V 11243 5150 50  0000 C CNN
+F 0 "R49" V 11243 5150 50  0000 C CNN
 F 1 "0" V 11334 5150 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" V 11380 5150 50  0001 C CNN
 F 3 "~" H 11450 5150 50  0001 C CNN
@@ -10458,6 +10458,8 @@ Text Notes 10450 4900 0    50   ~ 0
 Separate ground-in net protects current path
 Text Label 11100 5150 0    50   ~ 0
 TS-
+NoConn ~ 6150 1900
+NoConn ~ 6150 2300
 Wire Bus Line
 	500  4900 500  5150
 Wire Bus Line
