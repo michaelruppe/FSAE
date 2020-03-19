@@ -1,0 +1,5 @@
+# For SPICE simulations
+
+*.log
+*.raw
+*.op.raw
