@@ -10146,7 +10146,6 @@ F 3 "" H 50  5250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	50   5250 0    5250
-NoConn ~ 0    5350
 $Comp
 L power:+5V #PWR01
 U 1 1 5EB5EDB6
@@ -10163,16 +10162,16 @@ Wire Wire Line
 $Comp
 L precharge-library:GLV- #PWR02
 U 1 1 5EB8484B
-P -500 5600
-F 0 "#PWR02" H -500 5450 50  0001 C CNN
-F 1 "GLV-" H -485 5773 50  0000 C CNN
-F 2 "" H -500 5600 50  0001 C CNN
-F 3 "" H -500 5600 50  0001 C CNN
-	1    -500 5600
+P -500 5800
+F 0 "#PWR02" H -500 5650 50  0001 C CNN
+F 1 "GLV-" H -485 5973 50  0000 C CNN
+F 2 "" H -500 5800 50  0001 C CNN
+F 3 "" H -500 5800 50  0001 C CNN
+	1    -500 5800
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	-500 5600 -500 5550
+	-500 5800 -500 5700
 Text Label -1450 5000 2    50   ~ 0
 CANH
 Text Label -1450 5300 2    50   ~ 0
@@ -10460,8 +10459,17 @@ Text Label 11100 5150 0    50   ~ 0
 TS-
 NoConn ~ 6150 1900
 NoConn ~ 6150 2300
+Wire Wire Line
+	-500 5700 200  5700
+Wire Wire Line
+	200  5700 200  5350
+Wire Wire Line
+	200  5350 0    5350
 Wire Bus Line
 	500  4900 500  5150
 Wire Bus Line
 	2600 4150 2600 4300
+Connection ~ -500 5700
+Wire Wire Line
+	-500 5700 -500 5550
 $EndSCHEMATC
