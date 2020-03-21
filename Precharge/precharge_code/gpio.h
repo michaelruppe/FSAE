@@ -25,5 +25,5 @@ const int PWR_OK_PIN = A4; // Active-high when power-supply (shutdown circuit) i
 // Function prototypes
 void setupGPIO(void);
 unsigned long getFrequency(int pin);
-
+unsigned int getVoltage(int pin);
 #endif
