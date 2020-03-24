@@ -1,0 +1,275 @@
+EESchema Schematic File Version 4
+LIBS:CANboy PCB-cache
+EELAYER 29 0
+EELAYER END
+$Descr A3 16535 11693
+encoding utf-8
+Sheet 1 1
+Title "CANboy"
+Date ""
+Rev "v1"
+Comp "NU Racing (University of Newcastle)"
+Comment1 "Michael Ruppe"
+Comment2 "https://github.com/michaelruppe/FSAE"
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L teensy:Teensy3.2 U3
+U 1 1 5E7A93D6
+P 8150 5650
+F 0 "U3" H 8150 7287 60  0000 C CNN
+F 1 "Teensy3.2" H 8150 7181 60  0000 C CNN
+F 2 "teensy:Teensy30_31_32_LC" H 8150 4900 60  0001 C CNN
+F 3 "" H 8150 4900 60  0000 C CNN
+	1    8150 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Interface_CAN_LIN:TJA1051T-3 U2
+U 1 1 5E7A9E9F
+P 5800 4900
+F 0 "U2" H 5550 5250 50  0000 C CNN
+F 1 "TJA1051T-3" H 5500 4550 50  0000 C CNN
+F 2 "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm" H 5800 4400 50  0001 C CIN
+F 3 "http://www.nxp.com/documents/data_sheet/TJA1051.pdf" H 5800 4900 50  0001 C CNN
+	1    5800 4900
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 4700 7150 4700
+Wire Wire Line
+	7150 4800 6300 4800
+$Comp
+L Device:C C5
+U 1 1 5E7DA5E4
+P 5550 4450
+F 0 "C5" V 5298 4450 50  0000 C CNN
+F 1 "C" V 5389 4450 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5588 4300 50  0001 C CNN
+F 3 "~" H 5550 4450 50  0001 C CNN
+	1    5550 4450
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+3.3V #PWR06
+U 1 1 5E7DBE0A
+P 6350 5000
+F 0 "#PWR06" H 6350 4850 50  0001 C CNN
+F 1 "+3.3V" V 6365 5128 50  0000 L CNN
+F 2 "" H 6350 5000 50  0001 C CNN
+F 3 "" H 6350 5000 50  0001 C CNN
+	1    6350 5000
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6350 5000 6300 5000
+$Comp
+L power:+5V #PWR04
+U 1 1 5E7DCCD5
+P 5800 4350
+F 0 "#PWR04" H 5800 4200 50  0001 C CNN
+F 1 "+5V" H 5815 4523 50  0000 C CNN
+F 2 "" H 5800 4350 50  0001 C CNN
+F 3 "" H 5800 4350 50  0001 C CNN
+	1    5800 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5700 4450 5800 4450
+Wire Wire Line
+	5800 4450 5800 4350
+Wire Wire Line
+	5800 4500 5800 4450
+Connection ~ 5800 4450
+$Comp
+L power:GND #PWR05
+U 1 1 5E7DD6C2
+P 5800 5400
+F 0 "#PWR05" H 5800 5150 50  0001 C CNN
+F 1 "GND" H 5805 5227 50  0000 C CNN
+F 2 "" H 5800 5400 50  0001 C CNN
+F 3 "" H 5800 5400 50  0001 C CNN
+	1    5800 5400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5800 5400 5800 5300
+$Comp
+L power:GND #PWR03
+U 1 1 5E7DDD8E
+P 5300 4450
+F 0 "#PWR03" H 5300 4200 50  0001 C CNN
+F 1 "GND" V 5305 4322 50  0000 R CNN
+F 2 "" H 5300 4450 50  0001 C CNN
+F 3 "" H 5300 4450 50  0001 C CNN
+	1    5300 4450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5300 4450 5400 4450
+$Comp
+L power:GND #PWR07
+U 1 1 5E7DE637
+P 7000 4300
+F 0 "#PWR07" H 7000 4050 50  0001 C CNN
+F 1 "GND" V 7005 4172 50  0000 R CNN
+F 2 "" H 7000 4300 50  0001 C CNN
+F 3 "" H 7000 4300 50  0001 C CNN
+	1    7000 4300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7000 4300 7150 4300
+$Comp
+L power:GND #PWR08
+U 1 1 5E7DECB1
+P 9250 5800
+F 0 "#PWR08" H 9250 5550 50  0001 C CNN
+F 1 "GND" V 9255 5672 50  0000 R CNN
+F 2 "" H 9250 5800 50  0001 C CNN
+F 3 "" H 9250 5800 50  0001 C CNN
+	1    9250 5800
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	9250 5800 9150 5800
+$Comp
+L Regulator_Linear:AMS1117-5.0 U1
+U 1 1 5E7DF838
+P 2850 2000
+F 0 "U1" H 2850 2242 50  0000 C CNN
+F 1 "AMS1117-5.0" H 2850 2151 50  0000 C CNN
+F 2 "Package_TO_SOT_SMD:SOT-223-3_TabPin2" H 2850 2200 50  0001 C CNN
+F 3 "http://www.advanced-monolithic.com/pdf/ds1117.pdf" H 2950 1750 50  0001 C CNN
+	1    2850 2000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:D D1
+U 1 1 5E7E1702
+P 1850 2000
+F 0 "D1" H 1850 1784 50  0000 C CNN
+F 1 "D" H 1850 1875 50  0000 C CNN
+F 2 "Diode_SMD:D_SMA" H 1850 2000 50  0001 C CNN
+F 3 "~" H 1850 2000 50  0001 C CNN
+	1    1850 2000
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5E7E2B80
+P 2050 2150
+F 0 "C1" H 1935 2104 50  0000 R CNN
+F 1 "10u" H 1935 2195 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2088 2000 50  0001 C CNN
+F 3 "~" H 2050 2150 50  0001 C CNN
+	1    2050 2150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	2550 2000 2350 2000
+Connection ~ 2050 2000
+Wire Wire Line
+	2050 2000 2000 2000
+$Comp
+L Device:C C3
+U 1 1 5E7E365F
+P 3250 2150
+F 0 "C3" H 3135 2104 50  0000 R CNN
+F 1 "1u" H 3135 2195 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3288 2000 50  0001 C CNN
+F 3 "~" H 3250 2150 50  0001 C CNN
+	1    3250 2150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3150 2000 3250 2000
+$Comp
+L Device:C C2
+U 1 1 5E7E4C0F
+P 2350 2150
+F 0 "C2" H 2235 2104 50  0000 R CNN
+F 1 "100n" H 2235 2195 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2388 2000 50  0001 C CNN
+F 3 "~" H 2350 2150 50  0001 C CNN
+	1    2350 2150
+	-1   0    0    1   
+$EndComp
+Connection ~ 2350 2000
+Wire Wire Line
+	2350 2000 2050 2000
+$Comp
+L Device:C C4
+U 1 1 5E7E4EEB
+P 3550 2150
+F 0 "C4" H 3435 2104 50  0000 R CNN
+F 1 "100n" H 3435 2195 50  0000 R CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 3588 2000 50  0001 C CNN
+F 3 "~" H 3550 2150 50  0001 C CNN
+	1    3550 2150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	3550 2000 3250 2000
+Connection ~ 3250 2000
+Wire Wire Line
+	3550 2300 3250 2300
+Connection ~ 2350 2300
+Wire Wire Line
+	2350 2300 2050 2300
+Connection ~ 2850 2300
+Wire Wire Line
+	2850 2300 2350 2300
+Connection ~ 3250 2300
+Wire Wire Line
+	3250 2300 2850 2300
+$Comp
+L power:GND #PWR01
+U 1 1 5E7E58ED
+P 2850 2300
+F 0 "#PWR01" H 2850 2050 50  0001 C CNN
+F 1 "GND" H 2855 2127 50  0000 C CNN
+F 2 "" H 2850 2300 50  0001 C CNN
+F 3 "" H 2850 2300 50  0001 C CNN
+	1    2850 2300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR02
+U 1 1 5E7E6601
+P 3550 2000
+F 0 "#PWR02" H 3550 1850 50  0001 C CNN
+F 1 "+5V" H 3565 2173 50  0000 C CNN
+F 2 "" H 3550 2000 50  0001 C CNN
+F 3 "" H 3550 2000 50  0001 C CNN
+	1    3550 2000
+	1    0    0    -1  
+$EndComp
+Connection ~ 3550 2000
+$Comp
+L Device:R R?
+U 1 1 5E7EF83C
+P 4950 4900
+F 0 "R?" H 5020 4946 50  0000 L CNN
+F 1 "R" H 5020 4855 50  0000 L CNN
+F 2 "" V 4880 4900 50  0001 C CNN
+F 3 "~" H 4950 4900 50  0001 C CNN
+	1    4950 4900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5300 4800 5150 4800
+Wire Wire Line
+	5150 4800 5150 4750
+Wire Wire Line
+	5150 4750 4950 4750
+Wire Wire Line
+	5300 5000 5150 5000
+Wire Wire Line
+	5150 5000 5150 5050
+Wire Wire Line
+	5150 5050 4950 5050
+Text Notes 9550 2050 0    50   ~ 0
+TODO\nSPI\nI2C - IMU or Laser rangefinder footprints on board\n\nSolder Jumpers to select?\nUART - microfit connector\nAnalogue In - microfit\nDigital in - microfit
+$EndSCHEMATC
