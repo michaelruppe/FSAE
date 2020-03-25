@@ -4,4 +4,9 @@ $CMP Adafruit_Laser_Rangefinder_VL53L0X_VL6180X
 F https://learn.adafruit.com/adafruit-vl6180x-time-of-flight-micro-lidar-distance-sensor-breakout/pinouts
 $ENDCMP
 #
+$CMP Sparkfun_MPU-9250
+D 9DOF IMU
+F https://learn.sparkfun.com/tutorials/mpu-9250-hookup-guide
+$ENDCMP
+#
 #End Doc Library

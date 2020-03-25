@@ -1,3 +1,4 @@
 (fp_lib_table
   (lib (name teensy)(type KiCad)(uri ${KIPRJMOD}/teensy.pretty)(options "")(descr ""))
+  (lib (name "CANboy PCB")(type KiCad)(uri "${KIPRJMOD}/CANboy PCB.pretty")(options "")(descr ""))
 )
