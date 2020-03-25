@@ -1,0 +1,7 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP Adafruit_Laser_Rangefinder_VL53L0X_VL6180X
+F https://learn.adafruit.com/adafruit-vl6180x-time-of-flight-micro-lidar-distance-sensor-breakout/pinouts
+$ENDCMP
+#
+#End Doc Library

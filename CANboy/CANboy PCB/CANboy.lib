@@ -1,0 +1,23 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# Adafruit_Laser_Rangefinder_VL53L0X_VL6180X
+#
+DEF Adafruit_Laser_Rangefinder_VL53L0X_VL6180X U 0 40 Y Y 1 F N
+F0 "U" -250 350 50 H V C CNN
+F1 "Adafruit_Laser_Rangefinder_VL53L0X_VL6180X" 900 -350 50 H V C CNN
+F2 "CANboy PCB:Adafruit_Laser_Rangefinder_VL53L0X_VL6180X" 1200 -450 50 H I C CNN
+F3 "" 0 100 50 H I C CNN
+DRAW
+S -300 300 250 -300 0 1 0 f
+X VIN 1 0 400 100 D 50 50 1 1 W
+X 2v8 2 -400 -100 100 R 50 50 1 1 w
+X GND 3 0 -400 100 U 50 50 1 1 W
+X GPIO 4 -400 100 100 R 50 50 1 1 I
+X SHDN 5 -400 0 100 R 50 50 1 1 I
+X SCL 6 350 50 100 L 50 50 1 1 I
+X SDA 7 350 -50 100 L 50 50 1 1 B
+ENDDRAW
+ENDDEF
+#
+#End Library
