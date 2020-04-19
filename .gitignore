@@ -34,3 +34,6 @@ _autosave-*
 *.step
 !**/CAD files/*.step
 !**/CAD-files/*.step
+
+# Excel temp files
+*~$*.xlsx
