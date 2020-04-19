@@ -1,7 +1,5 @@
 #include "gpio.h"
 
-const unsigned int TIMEOUT = 10000;
-
 void setupGPIO(void) {
     // LEDs
     for (uint8_t i=0; i<(sizeof(STATUS_LED)/sizeof(*STATUS_LED)); i++) pinMode(STATUS_LED[i], OUTPUT);
@@ -22,25 +20,15 @@ void setupGPIO(void) {
     pinMode(PDOC_PIN, INPUT);
     pinMode(PWR_OK_PIN, INPUT);
 
-}
 
-// Measure the frequency at a pin by measuring a pulse train.
-// Do not assume 50% duty cycle, instead, measure a high pulse and a low pulse
-// separately. This will combine measurements from two separate wavelengths, but
-// that's fine with me.
-double getFrequency(int pin) {
-  unsigned long tHigh = pulseIn(pin, HIGH, TIMEOUT);
-  unsigned long tLow = pulseIn(pin,LOW, TIMEOUT);
-  return round(1/(1e-6 * (double)(tHigh + tLow)));
-}
+    // Animate status lights
+    for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
+      digitalWrite(STATUS_LED[i], HIGH);
+    }
+    delay(500);
+    for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
+      digitalWrite(STATUS_LED[i], LOW);
+    }
+    delay(500);
 
-double getVoltage(int pin) {
-  double freq = getFrequency(pin);
-  return (double)map(freq,0,10000,0,610); // TODO: use sensible values. SYSID
-}
-
-double getPeriod(int pin) {
-  unsigned long tHigh = pulseIn(pin, HIGH, TIMEOUT);
-  unsigned long tLow = pulseIn(pin,LOW, TIMEOUT);
-  return round(tHigh + tLow);
 }
