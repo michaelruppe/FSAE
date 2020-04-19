@@ -1,5 +1,7 @@
 #include "gpio.h"
 
+const unsigned int TIMEOUT = 10000; // microseconds.
+// 10,000 sets the lower frequncy limit to 100Hz or about 0.13V
 
 void setupGPIO(void) {
     // LEDs
@@ -27,13 +29,19 @@ void setupGPIO(void) {
 // Do not assume 50% duty cycle, instead, measure a high pulse and a low pulse
 // separately. This will combine measurements from two separate wavelengths, but
 // that's fine with me.
-unsigned long getFrequency(int pin) {
-  unsigned long tHigh = pulseIn(pin,HIGH);
-  unsigned long tLow = pulseIn(pin,LOW);
-  return round(1000000.0/(tHigh + tLow));
+double getFrequency(int pin) {
+  unsigned long tHigh = pulseIn(pin, HIGH, TIMEOUT);
+  unsigned long tLow = pulseIn(pin,LOW, TIMEOUT);
+  return round(1/(1e-6 * (double)(tHigh + tLow)));
 }
 
-unsigned int getVoltage(int pin) {
-  unsigned long freq = getFrequency(pin);
-  return (unsigned int)map(freq,0,10000,0,610); // TODO: use sensible values. SYSID
+double getVoltage(int pin) {
+  double freq = getFrequency(pin);
+  return (double)map(freq,0,10000,0,610); // TODO: use sensible values. SYSID
+}
+
+double getPeriod(int pin) {
+  unsigned long tHigh = pulseIn(pin, HIGH, TIMEOUT);
+  unsigned long tLow = pulseIn(pin,LOW, TIMEOUT);
+  return round(tHigh + tLow);
 }
