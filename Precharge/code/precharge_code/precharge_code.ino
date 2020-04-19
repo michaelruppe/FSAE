@@ -1,4 +1,5 @@
 #include "gpio.h"
+#include "measurements.h"
 // CAN Libraries
 // #include <circular_buffer.h>
 // #include <FlexCAN_T4.h>
@@ -44,64 +45,23 @@ void setup() {
   // Initialise IO
   setupGPIO();
 
-  for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
-    digitalWrite(STATUS_LED[i], HIGH);
-    delay(500);
-  }
-  for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
-    digitalWrite(STATUS_LED[i], LOW);
-  }
-
-  // delay(1000);
-  // digitalWrite(PRECHARGE_CTRL_PIN, LOW);
-  // delay(1000);
-  //
-  // digitalWrite(SHUTDOWN_CTRL_PIN, HIGH);
-  // delay(1000);
-  // digitalWrite(SHUTDOWN_CTRL_PIN, LOW);
-  // delay(1000);
-
-  Serial.println("time,F_ACCU,F_TS");
-  Serial.print("-1");
-  Serial.print(",");
-  Serial.print(getFrequency(FREQ_ACCU_PIN));
-  Serial.print(",");
-  Serial.print(getFrequency(FREQ_TS_PIN));
-  Serial.println();
-  delay(100);
-  startTime = millis();
-  // digitalWrite(PRECHARGE_CTRL_PIN, HIGH);
 }
 
-int num_samples = 20;
+
 void loop() {
-  unsigned long now = millis() - startTime;
-  if (now > 3000){
-    digitalWrite(PRECHARGE_CTRL_PIN, LOW);
-  }
-  if (now > 0){
-  // if (now < 15000){
-  double sum = 0;
-  for (int i = 0; i < num_samples; i++) {
-    sum += getFrequency(FREQ_ACCU_PIN);
-  }
-  Serial.print(sum/(double)num_samples);
-  Serial.print(",");
-  sum = 0;
-  for (int i = 0; i < num_samples; i++) {
-    sum += getFrequency(FREQ_TS_PIN);
-  }
-  Serial.print(sum/(double)num_samples);
+    double vA = getAccuVoltage();
+    double vT = getTsVoltage();
+    // double f = getFrequency(FREQ_ACCU_PIN);
+    // Serial.println(f);
 
-    // Serial.print(now);
-    // Serial.print(",");
-    // Serial.print(getFrequency(FREQ_ACCU_PIN));
-    // Serial.print(",");
-    // Serial.print(getFrequency(FREQ_TS_PIN));
+    double sum = 0;
+    for (int i = 0; i < 20; i++) {
+      sum += getAccuVoltage() - getTsVoltage();
+    }
 
-    Serial.println();
-  }
-  delay(1000);
+    Serial.println(sum/20.0);
+
+  delay(100);
 
 }
 
