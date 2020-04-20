@@ -30,6 +30,12 @@ STATEVAR state = STATE_STANDBY;
 STATEVAR lastState = STATE_UNDEFINED;
 int errorCode = ERR_NONE;
 
+StatusLight statusLED[4] { { STATUS_LED[0], 500, 500 },
+                          { STATUS_LED[1], 200, 200 },
+                          { STATUS_LED[2], 1200, 1200 },
+                          { STATUS_LED[3], 800, 800 }};
+
+
 // Uptime from millis()
 unsigned long now;
 
@@ -78,6 +84,8 @@ void loop() {
 
 
   }
+
+  updateStatusLeds();
 
 }
 
@@ -199,4 +207,11 @@ void errorState() {
     if (errorCode & ERR_STATE_UNDEFINED) Serial.println(F("   *State not defined in The State Machine."));
   }
 
+}
+
+
+void updateStatusLeds() {
+  for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
+    statusLED[i].update();
+  }
 }

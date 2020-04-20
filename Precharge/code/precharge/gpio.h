@@ -5,6 +5,19 @@
 #include "Arduino.h"
 #include <stdint.h>
 
+class StatusLight
+{
+  public:
+    StatusLight(int pin, long on, long off);
+    void update();
+  private:
+    int ledPin;
+    long OnTime;
+    long OffTime;
+    int ledState;
+    unsigned long previousMillis;
+};
+
 // Configuration solder-jumpers
 const int CONFIG_PIN[] = {4,5,6};
 // Status LEDs
@@ -25,5 +38,6 @@ const int PWR_OK_PIN = A4; // Active-high when power-supply (shutdown circuit) i
 // Function prototypes
 void setupGPIO(void);
 float getShutdownCircuitVoltage(void);
+
 
 #endif
