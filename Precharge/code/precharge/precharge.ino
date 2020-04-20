@@ -147,7 +147,7 @@ void precharge() {
       state = STATE_RUN;
       Serial.print(F("* Precharge complete at: "));
       Serial.print(prechargeProgress);
-      Serial.println(F("%,"));
+      Serial.print(F("%,"));
       Serial.print(TSV_Average.value());
       Serial.print(F("Volts\n"));
     }
