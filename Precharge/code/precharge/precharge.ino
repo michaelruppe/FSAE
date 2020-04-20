@@ -85,9 +85,9 @@ void loop() {
 void standby() {
   static unsigned long epoch = millis();
   if (lastState != STATE_STANDBY) {
-    Serial.println(" === STANDBY");
+    Serial.println(F(" === STANDBY"));
     epoch = millis(); // make sure to reset if we've circled back to standby
-    Serial.println("* Waiting for stable shutdown circuit");
+    Serial.println(F("* Waiting for stable shutdown circuit"));
     lastState = STATE_STANDBY;
   }
   digitalWrite(PRECHARGE_CTRL_PIN, LOW);
@@ -120,7 +120,7 @@ void precharge() {
   static unsigned long tStartPre;
 
   if (lastState != STATE_PRECHARGE){
-    Serial.println(" === PRECHARGE");
+    Serial.println(F(" === PRECHARGE"));
     lastState = STATE_PRECHARGE;
     epoch = now;
     tStartPre = now;
@@ -137,9 +137,9 @@ void precharge() {
   double tsv = TSV_Average.value();
   double prechargeProgress = 100 * tsv / acv;
   if (now % 100 == 0) {
-    Serial.print("Precharging: ");
+    Serial.print(F("Precharging: "));
     Serial.print(prechargeProgress);
-    Serial.println("%");
+    Serial.println(F("%"));
   }
   if ( prechargeProgress >= PRECHARGE_PERCENT ) {
     // Precharge complete
@@ -169,7 +169,7 @@ void running() {
   const unsigned int T_OVERLAP = 500; // ms. Time to overlap the switching of AIR and Precharge
   static unsigned long epoch;
   if (lastState != STATE_RUN){
-    Serial.println(" === RUNNING");
+    Serial.println(F(" === RUNNING"));
     lastState = STATE_RUN;
     epoch = now;
   }
@@ -184,14 +184,14 @@ void errorState() {
   digitalWrite(SHUTDOWN_CTRL_PIN, LOW);
 
   if (lastState != STATE_ERROR){
-    Serial.println(" === ERROR");
+    Serial.println(F(" === ERROR"));
     lastState = STATE_ERROR;
 
     // Print errors
-    if (errorCode == ERR_NONE) Serial.println("   *Error state, but no error code logged...");
-    if (errorCode & ERR_PRECHARGE_TOO_FAST) Serial.println("   *Precharge too fast. Suspect wiring fault / chatter in shutdown circuit.");
-    if (errorCode & ERR_PRECHARGE_TOO_SLOW) Serial.println("   *Precharge too slow. Suspect wiring fault.");
-    if (errorCode & ERR_STATE_UNDEFINED) Serial.println("   *State not defined in The State Machine.");
+    if (errorCode == ERR_NONE) Serial.println(F("   *Error state, but no error code logged..."));
+    if (errorCode & ERR_PRECHARGE_TOO_FAST) Serial.println(F("   *Precharge too fast. Suspect wiring fault / chatter in shutdown circuit."));
+    if (errorCode & ERR_PRECHARGE_TOO_SLOW) Serial.println(F("   *Precharge too slow. Suspect wiring fault."));
+    if (errorCode & ERR_STATE_UNDEFINED) Serial.println(F("   *State not defined in The State Machine."));
   }
 
 }
