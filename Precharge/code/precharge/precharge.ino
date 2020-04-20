@@ -145,6 +145,11 @@ void precharge() {
     // Precharge complete
     if (now > epoch + SETTLING_TIME){
       state = STATE_RUN;
+      Serial.print(F("* Precharge complete at: "));
+      Serial.print(prechargeProgress);
+      Serial.println(F("%,"));
+      Serial.print(TSV_Average.value());
+      Serial.print(F("Volts\n"));
     }
     else if (now < tStartPre + MIN_EXPECTED) {    // Precharge too fast - something's wrong!
       state = STATE_ERROR;
