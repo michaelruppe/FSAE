@@ -8,5 +8,6 @@ double getAccuVoltage();
 double getFrequency(int pin);
 double getVoltage(int pin);
 double getPeriod(int pin);
+bool isInBounds(double f);
 
 #endif

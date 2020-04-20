@@ -23,6 +23,8 @@ const double V2F_ofs_ts = -3.7241;      // offset / y-intercept consant
 // gain = R2/(R1+R2)
 const double gainVoltageDivider = 0.01506373117;
 
+const float MIN_VOLTAGE_THRESHOLD = 5.0;  // Clip voltages below this level
+const int MAX_FREQ_ATTEMPTS = 10;         // Attempts at measuring frequency before accepting an out-of-bounds result
 
 // Calculate the HIGH voltage at Accumulator or TS
 // convert frequency to voltage: inverse of the linear characteristic
@@ -30,16 +32,30 @@ const double gainVoltageDivider = 0.01506373117;
 // scale voltage by voltage-divider
 double getTsVoltage() {
   double f = getFrequency(FREQ_TS_PIN);
-  double v = (f - V2F_ofs_ts)/V2F_slope_ts;
-  return v / gainVoltageDivider;
+  int attempts = 0;
+  while (!isInBounds(f) && attempts++ < MAX_FREQ_ATTEMPTS){
+    f = getFrequency(FREQ_TS_PIN);
+  }
+  // use last f when out-of-bounds but maxAttempts made
+  double v = (f - V2F_ofs_ts) / V2F_slope_ts / gainVoltageDivider;
+  return (v > MIN_VOLTAGE_THRESHOLD) ? v : 0; // Filter out very small voltage
 }
 // I know duplicating code is a no-no but who wants to write classes for this?!
 double getAccuVoltage() {
   double f = getFrequency(FREQ_ACCU_PIN);
-  if (f == 0) return 0; // frequency measurement timed-out
-  double v = (f - V2F_ofs_accu)/V2F_slope_accu;
-  return v / gainVoltageDivider;
+  int attempts = 0;
+  while (!isInBounds(f) && attempts++ < MAX_FREQ_ATTEMPTS){
+    f = getFrequency(FREQ_ACCU_PIN);
+  }
+  double v = (f - V2F_ofs_accu) / V2F_slope_accu / gainVoltageDivider;
+  return (v > MIN_VOLTAGE_THRESHOLD) ? v : 0;
 
+}
+
+// check if a sensible frequency was returned
+// this is an attempt to eliminate the outliers
+bool isInBounds(double f) {
+  return (f >= 100.0 && f <= 8000.0);
 }
 
 
@@ -54,7 +70,7 @@ double getFrequency(int pin) {
   if (tHigh == 0 || tLow == 0){
     return 0; // timed out
   }
-  return round(1/(1e-6 * (double)(tHigh + tLow)));    // f = 1/T
+  return ( 1000000.0 / (double)(tHigh + tLow) );    // f = 1/T
 }
 
 
