@@ -8,7 +8,7 @@
 
   Features:
     - Voltage feedback ensures sufficient precharge before closing AIR
-    - Wiring fault detection on "too fast" precharge
+    - Wiring fault / stuck-discharge detection on "too fast" precharge
     - Arrests AIR chatter -> minimum precharge time triggers error state and
       requires uC reset or power cycle.
 */
