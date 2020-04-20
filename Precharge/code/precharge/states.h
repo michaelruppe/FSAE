@@ -1,0 +1,12 @@
+#ifndef STATES_H
+#define STATES_H
+
+enum STATEVAR {
+  STATE_STANDBY,
+  STATE_PRECHARGE,
+  STATE_RUN,
+  STATE_UNDEFINED
+};
+
+
+#endif
