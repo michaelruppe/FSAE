@@ -114,8 +114,8 @@ void precharge() {
   // If a precharge is detected faster than this, an error is
   // thrown - assumed wiring fault. This will also arrest oscillating or
   // chattering AIRs, because the TS will retain some amount of precharge.
-  const float PRECHARGE_PERCENT = 0.88; // TODO: Change to suitable value during commissioning
-  const unsigned int SETTLING_TIME = 300; // ms
+  const float PRECHARGE_PERCENT = 88.0;   // TODO: Change to suitable value during commissioning
+  const unsigned int SETTLING_TIME = 300; // [ms]
   static unsigned long epoch;
   static unsigned long tStartPre;
 
@@ -135,7 +135,7 @@ void precharge() {
   TSV_Average.update(getTsVoltage());
   double acv = ACV_Average.value();
   double tsv = TSV_Average.value();
-  double prechargeProgress = 100 * tsv / acv;
+  double prechargeProgress = 100.0 * tsv / acv;
   if (now % 100 == 0) {
     Serial.print(F("Precharging: "));
     Serial.print(prechargeProgress);
