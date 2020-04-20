@@ -40,13 +40,14 @@ double getTsVoltage() {
   double v = (f - V2F_ofs_ts) / V2F_slope_ts / gainVoltageDivider;
   return (v > MIN_VOLTAGE_THRESHOLD) ? v : 0; // Filter out very small voltage
 }
-// I know duplicating code is a no-no but who wants to write classes for this?!
+// TODO: Refactor
 double getAccuVoltage() {
   double f = getFrequency(FREQ_ACCU_PIN);
   int attempts = 0;
   while (!isInBounds(f) && attempts++ < MAX_FREQ_ATTEMPTS){
     f = getFrequency(FREQ_ACCU_PIN);
   }
+  // use last f when out-of-bounds but maxAttempts made
   double v = (f - V2F_ofs_accu) / V2F_slope_accu / gainVoltageDivider;
   return (v > MIN_VOLTAGE_THRESHOLD) ? v : 0;
 
@@ -55,7 +56,9 @@ double getAccuVoltage() {
 // check if a sensible frequency was returned
 // this is an attempt to eliminate the outliers
 bool isInBounds(double f) {
-  return (f >= 100.0 && f <= 8000.0);
+  const float MIN_FREQ = 100.0;  // Dependent on the TIMEOUT value used in getFrequency
+  const float MAX_FREQ = 8000.0; // Clips the occasional spurious measurement
+  return (f >= MIN_FREQ && f <= MAX_FREQ);
 }
 
 
