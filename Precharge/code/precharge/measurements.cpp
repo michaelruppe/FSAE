@@ -59,10 +59,8 @@ bool isInBounds(double f) {
 }
 
 
-// Measure the frequency at a pin by measuring a pulse train.
-// Do not assume 50% duty cycle, instead, measure a high pulse and a low pulse
-// separately. This will combine measurements from two separate wavelengths, but
-// that's fine with me.
+// Calculate frequency from signal period. Signal not 50% duty cycle:
+// measure separate high-pulse and a low-pulse, sum to get period.
 double getFrequency(int pin) {
   const unsigned int TIMEOUT = 10000;
   unsigned int tHigh = pulseIn(pin, HIGH, TIMEOUT);  // microseconds
