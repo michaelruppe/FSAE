@@ -11,6 +11,11 @@
     - Wiring fault / stuck-discharge detection on "too fast" precharge
     - Arrests AIR chatter -> minimum precharge time triggers error state and
       requires uC reset or power cycle.
+
+  TODO:
+    - Consider adding a condition to the STATE_STANDBY -> STATE_PRECHARGE
+      transition: Check for zero TS voltage, ensure full discharge before
+      attempting a precharge.
 */
 
 
