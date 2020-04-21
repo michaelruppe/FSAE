@@ -66,7 +66,9 @@ void StatusLight::update() {
 void StatusLight::update(long on, long off) {
   OnTime = on;
   OffTime = off;
-  previousMillis = 0; // Guarantee an update NOW
+  // previousMillis = 0; // Guarantee an update NOW
+  // ^ Removed: if user calls this form of update repeatedly by accident,
+  // the LED behaciour will be erratic.
   update();
 }
 
