@@ -71,7 +71,7 @@ void loop() {
       precharge();
       break;
 
-    case STATE_RUN :
+    case STATE_ONLINE :
       running();
       break;
 
@@ -173,7 +173,7 @@ void precharge() {
   if ( prechargeProgress >= TARGET_PERCENT ) {
     // Precharge complete
     if (now > epoch + SETTLING_TIME){
-      state = STATE_RUN;
+      state = STATE_ONLINE;
       sprintf(lineBuffer, "* Precharge complete at: %2.0f%%   %5.1fV\n", prechargeProgress, TSV_Average.value());
       Serial.print(lineBuffer);
     }
@@ -199,11 +199,11 @@ void precharge() {
 void running() {
   const unsigned int T_OVERLAP = 500; // ms. Time to overlap the switching of AIR and Precharge
   static unsigned long epoch;
-  if (lastState != STATE_RUN){
+  if (lastState != STATE_ONLINE){
     updateStatusLeds(0,0);
     statusLED[2].on();
     Serial.println(F(" === RUNNING"));
-    lastState = STATE_RUN;
+    lastState = STATE_ONLINE;
     epoch = now;
   }
 
