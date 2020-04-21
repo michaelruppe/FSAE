@@ -24,11 +24,11 @@ A brief description of the Precharge logic follows. Refer to *Figures 2.3* for s
 If at any point the Shutdown Circuit voltage becomes too low, enter `State: Standby`
 
 <div align="center">
-<img src="docs/state-flow-chart.png" width="400">
+<img src="docs/state-flow-chart.png" width="800">
 <p>A top-level look at the state-flow behaviour</p>
 </div>
 <div align="center">
-<img src="docs/timing-diagram.png" width="600">
+<img src="docs/timing-diagram.png" width="800">
 <p>A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
 </div>
 
