@@ -151,10 +151,8 @@ void precharge() {
   // Print Precharging progress
   if (now >= lastPrint + 100) {
     lastPrint = now;
-    char str[80]; // output buffer
-    // This looks like: 100ms 21.96% 44.5V
-    // TODO: fix format string - not aligning float aesthetically, not printing "%"
-    sprintf(str, "%5ums %4.2f \% 5.1fV", now-tStartPre, prechargeProgress, TSV_Average.value());
+    char str[30]; // output buffer
+    sprintf(str, "%5ums %4.2f%%   %5.1fV", now-tStartPre, prechargeProgress, TSV_Average.value());
     Serial.println(str);
   }
 
