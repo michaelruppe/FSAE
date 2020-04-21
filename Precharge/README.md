@@ -1,7 +1,36 @@
 # Precharge
 
-The Precharge project aims to safely and reliably precharge the Tractive System. Voltage-feedback allows for minimal, exact precharge timing and error-detection.
+A device to precharge the Tractive System. This prototype features voltage feedback to protect AIRs. In open-loop systems, if a wiring fault develops (eg. precharge resistor is disconnected or discharge is stuck on) then the precharge is ineffective and AIRs may become damaged.
+<div align="center">
+<img src="Precharge-render.png" width="400">
+<p>The prototype Precharge module</p>
+</div>
 
+**Directories**
+- [code/precharge](code/precharge) - The source code
+- [Precharge](Precharge) - The PCB design files
+
+## Operation
+A brief description of the Precharge logic follows. Refer to *Figures 2.3* for state-flow information.
+- Initialise in `State: Standby` and monitor for a stable Shutdown Circuit.
+- If Shutdown Circuit is stable, enter `State: Precharge`:
+ - Close the precharge relay
+ - Monitor Accumulator voltage and Tractive System voltage
+ - Once TSV is close enough to AV (eg >95%), precharge is complete
+ - If precharge is too fast or too slow, a fault is likely present eg. Wiring fault, discharge stuck-on, stuck relay.
+- If precharge completed with no errors, proceed to `State: Online`:
+ - Enable the AIR, open precharge relay
+
+If at any point the Shutdown Circuit voltage becomes too low, enter `State: Standby`
+
+<div align="center">
+<img src="docs/state-flow-chart.png" width="400">
+<p>A top-level look at the state-flow behaviour</p>
+</div>
+<div align="center">
+<img src="docs/timing-diagram.png" width="600">
+<p>A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
+</div>
 
 ## Recommendations after building prototype
 

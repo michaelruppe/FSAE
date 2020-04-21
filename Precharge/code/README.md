@@ -9,3 +9,4 @@ from one project will not be the same as another.
 - [02-log-voltage](02-log-voltage/) Using the data obtained in the v-f expermiment to log voltage information
 for TS and Accumulator in a precharge bench-experiment
 - [03-log-voltage-EMA](03-log-voltage-EMA/) The same as `02` but now an Exponential Moving Average class is included to filter voltage data - virtually removing spurious peaks entirely.
+- [precharge](precharge/) The final precharge program.
