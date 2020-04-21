@@ -35,14 +35,10 @@ StatusLight statusLED[4] {{ STATUS_LED[0] },
                           { STATUS_LED[2] },
                           { STATUS_LED[3] }};
 
-
-
-// Uptime from millis()
-unsigned long now;
+unsigned long now; // Uptime from millis()
 
 void setup() {
   Serial.begin(460800);
-  // Initialise IO
   setupGPIO();
   delay(3000);
 
@@ -81,8 +77,6 @@ void loop() {
       state = STATE_ERROR;
       errorCode |= ERR_STATE_UNDEFINED;
       errorState();
-
-
   }
 
   updateStatusLeds();
@@ -93,6 +87,8 @@ void loop() {
 void standby() {
   static unsigned long epoch = millis();
   if (lastState != STATE_STANDBY) {
+    updateStatusLeds(0,0);
+    statusLED[0].on();
     Serial.println(F(" === STANDBY"));
     epoch = millis(); // make sure to reset if we've circled back to standby
     Serial.println(F("* Waiting for stable shutdown circuit"));
@@ -114,11 +110,11 @@ void standby() {
 }
 
 // Close the precharge relay, monitor precharge voltage.
-// Trip error if anything looks unusual
+// Trip error if charge-time looks unusual
 void precharge() {
   // Look for "too fast" or "too slow" precharge, indicates wiring fault
-  const float MIN_EXPECTED = 500; // ms.
-  const float MAX_EXPECTED = 5000; // ms.
+  const float MIN_EXPECTED = 500; // [ms].
+  const float MAX_EXPECTED = 5000; // [ms].
   // If a precharge is detected faster than this, an error is
   // thrown - assumed wiring fault. This will also arrest oscillating or
   // chattering AIRs, because the TS will retain some amount of precharge.
@@ -128,6 +124,8 @@ void precharge() {
   static unsigned long tStartPre;
 
   if (lastState != STATE_PRECHARGE){
+    updateStatusLeds(0,0);
+    statusLED[1].on();
     Serial.println(F(" === PRECHARGE"));
     lastState = STATE_PRECHARGE;
     epoch = now;
@@ -138,24 +136,36 @@ void precharge() {
   digitalWrite(PRECHARGE_CTRL_PIN, HIGH);
 
   // Look for steady accumulator voltage, set as a reference for precharge
-
-  ACV_Average.update(getAccuVoltage());
-  TSV_Average.update(getTsVoltage());
+  static unsigned long lastSample = 0;
+  const unsigned long samplePeriod = 10; // [ms] Period to measure voltages
+  if (now > lastSample + samplePeriod){
+    lastSample = now;
+    ACV_Average.update(getAccuVoltage());
+    TSV_Average.update(getTsVoltage());
+  }
   double acv = ACV_Average.value();
   double tsv = TSV_Average.value();
   double prechargeProgress = 100.0 * tsv / acv;
-  if (now % 100 == 0) {
-    Serial.print(F("Precharging: "));
-    Serial.print(prechargeProgress);
-    Serial.println(F("%"));
+  static unsigned long lastPrint = 0;
+
+  // Print Precharging progress
+  if (now >= lastPrint + 100) {
+    lastPrint = now;
+    char str[80]; // output buffer
+    // This looks like: 100ms 21.96% 44.5V
+    // TODO: fix format string - not aligning float aesthetically, not printing "%"
+    sprintf(str, "%5ums %4.2f \% 5.1fV", now-tStartPre, prechargeProgress, TSV_Average.value());
+    Serial.println(str);
   }
+
+  // Check if precharge complete
   if ( prechargeProgress >= PRECHARGE_PERCENT ) {
     // Precharge complete
     if (now > epoch + SETTLING_TIME){
       state = STATE_RUN;
       Serial.print(F("* Precharge complete at: "));
       Serial.print(prechargeProgress);
-      Serial.print(F("%,"));
+      Serial.print(F("%  "));
       Serial.print(TSV_Average.value());
       Serial.print(F("Volts\n"));
     }
@@ -182,6 +192,8 @@ void running() {
   const unsigned int T_OVERLAP = 500; // ms. Time to overlap the switching of AIR and Precharge
   static unsigned long epoch;
   if (lastState != STATE_RUN){
+    updateStatusLeds(0,0);
+    statusLED[2].on();
     Serial.println(F(" === RUNNING"));
     lastState = STATE_RUN;
     epoch = now;
@@ -197,22 +209,39 @@ void errorState() {
   digitalWrite(SHUTDOWN_CTRL_PIN, LOW);
 
   if (lastState != STATE_ERROR){
-    Serial.println(F(" === ERROR"));
     lastState = STATE_ERROR;
+    updateStatusLeds(0,0);      // All off
+    statusLED[3].update(50,50); // Strobe STS LED
+    Serial.println(F(" === ERROR"));
 
-    // Print errors
-    if (errorCode == ERR_NONE) Serial.println(F("   *Error state, but no error code logged..."));
-    if (errorCode & ERR_PRECHARGE_TOO_FAST) Serial.println(F("   *Precharge too fast. Suspect wiring fault / chatter in shutdown circuit."));
-    if (errorCode & ERR_PRECHARGE_TOO_SLOW) Serial.println(F("   *Precharge too slow. Suspect wiring fault."));
-    if (errorCode & ERR_STATE_UNDEFINED) Serial.println(F("   *State not defined in The State Machine."));
+    // Display errors: Serial and Status LEDs
+    if (errorCode == ERR_NONE){
+      Serial.println(F("   *Error state, but no error code logged..."));
+    }
+    if (errorCode & ERR_PRECHARGE_TOO_FAST) {
+      Serial.println(F("   *Precharge too fast. Suspect wiring fault / chatter in shutdown circuit."));
+      statusLED[0].on();
+    }
+    if (errorCode & ERR_PRECHARGE_TOO_SLOW) {
+      Serial.println(F("   *Precharge too slow. Suspect wiring fault."));
+      statusLED[0].update(100,100);
+    }
+    if (errorCode & ERR_STATE_UNDEFINED) {
+      Serial.println(F("   *State not defined in The State Machine."));
+    }
   }
 
 }
 
 
-// Loop through the array and call update. Simple
+// Loop through the array and call update.
 void updateStatusLeds() {
   for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
     statusLED[i].update();
+  }
+}
+void updateStatusLeds(long ton, long toff) {
+  for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
+    statusLED[i].update(ton, toff);
   }
 }
