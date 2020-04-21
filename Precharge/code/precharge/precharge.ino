@@ -35,6 +35,7 @@ StatusLight statusLED[4] {{ STATUS_LED[0] },
                           { STATUS_LED[2] },
                           { STATUS_LED[3] }};
 
+char lineBuffer[50];
 unsigned long now; // Uptime from millis()
 
 void setup() {
@@ -54,6 +55,7 @@ void loop() {
   if ( SDC_Average.value() < MIN_SDC_VOLTAGE && state != STATE_ERROR) {
     state = STATE_STANDBY;
   }
+
 
   // The State Machine
   switch(state){
@@ -94,8 +96,14 @@ void standby() {
     Serial.println(F("* Waiting for stable shutdown circuit"));
     lastState = STATE_STANDBY;
   }
+
+  // Disable AIR, Disable Precharge
   digitalWrite(PRECHARGE_CTRL_PIN, LOW);
   digitalWrite(SHUTDOWN_CTRL_PIN, LOW);
+
+  // Reset moving averages
+  TSV_Average.reset();
+  ACV_Average.reset();
 
   // Check for stable shutdown circuit
   const unsigned int WAIT_TIME = 200; // ms to wait for stable voltage
@@ -118,56 +126,53 @@ void precharge() {
   // If a precharge is detected faster than this, an error is
   // thrown - assumed wiring fault. This will also arrest oscillating or
   // chattering AIRs, because the TS will retain some amount of precharge.
-  const float PRECHARGE_PERCENT = 88.0;   // TODO: Change to suitable value during commissioning
-  const unsigned int SETTLING_TIME = 300; // [ms]
+  const float TARGET_PERCENT = 88.0;   // TODO: Change to suitable value during commissioning
+  const unsigned int SETTLING_TIME = 200; // [ms] Precharge amount must be over TARGET_PERCENT for this long before we consider precharge complete
   static unsigned long epoch;
   static unsigned long tStartPre;
 
   if (lastState != STATE_PRECHARGE){
+    digitalWrite(PRECHARGE_CTRL_PIN, HIGH);
+    lastState = STATE_PRECHARGE;
     updateStatusLeds(0,0);
     statusLED[1].on();
-    Serial.println(F(" === PRECHARGE"));
-    lastState = STATE_PRECHARGE;
+    sprintf(lineBuffer, " === PRECHARGE\n Target precharge %4.1f%%\n", TARGET_PERCENT);
+    Serial.print(lineBuffer);
     epoch = now;
     tStartPre = now;
   }
 
-
-  digitalWrite(PRECHARGE_CTRL_PIN, HIGH);
-
-  // Look for steady accumulator voltage, set as a reference for precharge
-  static unsigned long lastSample = 0;
+  // Sample the voltages and update moving averages
   const unsigned long samplePeriod = 10; // [ms] Period to measure voltages
-  if (now > lastSample + samplePeriod){
+  static unsigned long lastSample = 0;
+  if (now > lastSample + samplePeriod){  // samplePeriod and movingAverage alpha value will affect moving average response.
     lastSample = now;
     ACV_Average.update(getAccuVoltage());
     TSV_Average.update(getTsVoltage());
   }
   double acv = ACV_Average.value();
   double tsv = TSV_Average.value();
-  double prechargeProgress = 100.0 * tsv / acv;
-  static unsigned long lastPrint = 0;
+
+  // The precharge progress is a function of the accumulator voltage
+  double prechargeProgress = 100.0 * tsv / acv; // [%]
 
   // Print Precharging progress
+  static unsigned long lastPrint = 0;
   if (now >= lastPrint + 100) {
     lastPrint = now;
-    char str[30]; // output buffer
-    sprintf(str, "%5ums %4.2f%%   %5.1fV", now-tStartPre, prechargeProgress, TSV_Average.value());
-    Serial.println(str);
+    sprintf(lineBuffer, "%5lums %4.1f%%   %5.1fV\n", now-tStartPre, prechargeProgress, TSV_Average.value());
+    Serial.print(lineBuffer);
   }
 
   // Check if precharge complete
-  if ( prechargeProgress >= PRECHARGE_PERCENT ) {
+  if ( prechargeProgress >= TARGET_PERCENT ) {
     // Precharge complete
     if (now > epoch + SETTLING_TIME){
       state = STATE_RUN;
-      Serial.print(F("* Precharge complete at: "));
-      Serial.print(prechargeProgress);
-      Serial.print(F("%  "));
-      Serial.print(TSV_Average.value());
-      Serial.print(F("Volts\n"));
+      sprintf(lineBuffer, "* Precharge complete at: %2.0f%%   %5.1fV\n", prechargeProgress, TSV_Average.value());
+      Serial.print(lineBuffer);
     }
-    else if (now < tStartPre + MIN_EXPECTED) {    // Precharge too fast - something's wrong!
+    else if (now < tStartPre + MIN_EXPECTED && now > epoch + SETTLING_TIME) {    // Precharge too fast - something's wrong!
       state = STATE_ERROR;
       errorCode |= ERR_PRECHARGE_TOO_FAST;
     }
@@ -221,7 +226,7 @@ void errorState() {
       statusLED[0].on();
     }
     if (errorCode & ERR_PRECHARGE_TOO_SLOW) {
-      Serial.println(F("   *Precharge too slow. Suspect wiring fault."));
+      Serial.println(F("   *Precharge too slow. Potential causes:\n   - Wiring fault\n   - Discharge is stuck-on\n   - Target precharge percent is too high"));
       statusLED[1].on();
     }
     if (errorCode & ERR_STATE_UNDEFINED) {
