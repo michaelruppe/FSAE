@@ -2,9 +2,10 @@
 #include "moving-average.h"
 
 
-MovingAverage::MovingAverage(double average, double alpha)
+MovingAverage::MovingAverage(double initial, double alpha)
 {
-  _average = average;
+  _average = initial;
+  _initialAverage = initial;
   _alpha = alpha;
 }
 
@@ -19,4 +20,9 @@ double MovingAverage::update(double sample)
 double MovingAverage::value()
 {
   return _average;
+}
+
+void MovingAverage::reset()
+{
+  _average = _initialAverage;
 }

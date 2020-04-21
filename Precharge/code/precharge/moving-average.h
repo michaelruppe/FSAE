@@ -32,11 +32,13 @@
 class MovingAverage
 {
   public:
-    MovingAverage(double average, double alpha);
+    MovingAverage(double initial, double alpha);
     double update(double sample);
     double value();
+    void reset();
   private:
     double _average;
+    double _initialAverage;
     double _alpha;
 };
 
