@@ -3,7 +3,7 @@
 A device to precharge the Tractive System. This prototype features voltage feedback to protect AIRs. In open-loop systems, if a wiring fault develops (eg. precharge resistor is disconnected or discharge is stuck on) then the precharge is ineffective and AIRs may become damaged.
 <div align="center">
 <img src="Precharge-render.png" width="400">
-<p>The prototype Precharge module</p>
+<p>Figure 1: The prototype Precharge module</p>
 </div>
 
 **Directories**
@@ -11,7 +11,7 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 - [Precharge](Precharge) - The PCB design files
 
 ## Operation
-A brief description of the Precharge logic follows. Refer to *Figures 2.3* for state-flow information.
+A brief description of the Precharge logic follows. Refer to *Figures 2 & 3* for state-flow information.
 - Initialise in `State: Standby` and monitor for a stable Shutdown Circuit.
 - If Shutdown Circuit is stable, enter `State: Precharge`:
  - Close the precharge relay
@@ -25,13 +25,13 @@ If at any point the Shutdown Circuit voltage becomes too low, enter `State: Stan
 
 <div align="center">
 <img src="docs/state-flow-chart.png" width="800">
-<p>A top-level look at the state-flow behaviour</p>
+<p>Figure 2: A top-level look at the state-flow behaviour</p>
 </div>
 <div align="center">
 <img src="docs/timing-diagram.png" width="800">
-<p>A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
+<p>Figure 3: A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
 </div>
 
 ## Recommendations after building prototype
 
-**V-F Conversion**: Either include offset in V-F converter circuit so that min frequency is eg ~100Hz ([Datasheet](https://www.ti.com/lit/ds/symlink/lm331.pdf): Figure 14) or replace V-F converters with microcontroller programmed for the same task. The challenge is that low frequencies require a long timeout period. Applying a 100Hz offset means the longest timeout would be 10 milli-seconds.
+**V-F Conversion**: Either include offset in V-F converter circuit so that min frequency is eg ~100Hz instead of 0Hz ([Datasheet](https://www.ti.com/lit/ds/symlink/lm331.pdf): Figure 14) or replace V-F converters with microcontroller programmed for the same task. The challenge is that low frequencies require a long timeout period. Applying a 100Hz offset means the longest timeout would be 10 milli-seconds.
