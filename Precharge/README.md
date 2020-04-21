@@ -14,12 +14,12 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 A brief description of the Precharge logic follows. Refer to *Figures 2 & 3* for state-flow information.
 - Initialise in `State: Standby` and monitor for a stable Shutdown Circuit.
 - If Shutdown Circuit is stable, enter `State: Precharge`:
- - Close the precharge relay
- - Monitor Accumulator voltage and Tractive System voltage
- - Once TSV is close enough to AV (eg >95%), precharge is complete
- - If precharge is too fast or too slow, a fault is likely present eg. Wiring fault, discharge stuck-on, stuck relay.
+  - Close the precharge relay
+  - Monitor Accumulator voltage and Tractive System voltage
+  - Once TSV is close enough to AV (eg >95%), precharge is complete
+  - If precharge is too fast or too slow, a fault is likely present eg. Wiring fault, discharge stuck-on, stuck relay.
 - If precharge completed with no errors, proceed to `State: Online`:
- - Enable the AIR, open precharge relay
+  - Enable the AIR, open precharge relay
 
 If at any point the Shutdown Circuit voltage becomes too low, enter `State: Standby`
 
