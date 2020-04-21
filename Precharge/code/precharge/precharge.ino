@@ -24,7 +24,7 @@ const float MIN_SDC_VOLTAGE = 11.0; // [Volts]
 // Exponential Moving Average Filters
 MovingAverage TSV_Average(0, 0.1); // Tractive system Voltage
 MovingAverage ACV_Average(0, 0.1); // Accumulator (upstream of precharge resistor)
-MovingAverage SDC_Average(0, 0.3); // Shutdown Circuit
+MovingAverage SDC_Average(0, 0.5); // Shutdown Circuit
 
 STATEVAR state = STATE_STANDBY;
 STATEVAR lastState = STATE_UNDEFINED;
@@ -50,8 +50,12 @@ void loop() {
   now = millis();
 
   // Always monitor Shutdown Circuit Voltage and react
+  static unsigned long lastSample = 0;
+  if (now > lastSample + 10) {
+    lastSample = now;
+    SDC_Average.update(getShutdownCircuitVoltage());
+  }
   // Error state should be deadlocked - no way out.
-  SDC_Average.update(getShutdownCircuitVoltage());
   if ( SDC_Average.value() < MIN_SDC_VOLTAGE && state != STATE_ERROR) {
     state = STATE_STANDBY;
   }
@@ -89,21 +93,22 @@ void loop() {
 void standby() {
   static unsigned long epoch = millis();
   if (lastState != STATE_STANDBY) {
+    lastState = STATE_STANDBY;
     updateStatusLeds(0,0);
     statusLED[0].on();
     Serial.println(F(" === STANDBY"));
-    epoch = millis(); // make sure to reset if we've circled back to standby
     Serial.println(F("* Waiting for stable shutdown circuit"));
-    lastState = STATE_STANDBY;
+    epoch = millis(); // make sure to reset if we've circled back to standby
+
+    // Reset moving averages
+    TSV_Average.reset();
+    ACV_Average.reset();
+    SDC_Average.reset();
   }
 
   // Disable AIR, Disable Precharge
   digitalWrite(PRECHARGE_CTRL_PIN, LOW);
   digitalWrite(SHUTDOWN_CTRL_PIN, LOW);
-
-  // Reset moving averages
-  TSV_Average.reset();
-  ACV_Average.reset();
 
   // Check for stable shutdown circuit
   const unsigned int WAIT_TIME = 200; // ms to wait for stable voltage
