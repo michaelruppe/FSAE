@@ -1,10 +1,6 @@
 #include "gpio.h"
 
 void setupGPIO(void) {
-    // LEDs
-    // for (uint8_t i=0; i<(sizeof(STATUS_LED)/sizeof(*STATUS_LED)); i++) pinMode(STATUS_LED[i], OUTPUT);
-    // for (uint8_t i=0; i<(sizeof(STATUS_LED)/sizeof(*STATUS_LED)); i++) STATUS_LED[i] = StatusLight(i,500,500);
-    
     // Configuration solder-jumpers
     for (uint8_t i=0; i<(sizeof(CONFIG_PIN)/sizeof(*CONFIG_PIN)); i++){
       pinMode(CONFIG_PIN[i], INPUT);
@@ -22,17 +18,6 @@ void setupGPIO(void) {
     pinMode(PDOC_PIN, INPUT);
     pinMode(PWR_OK_PIN, INPUT);
 
-
-    // Animate status lights
-    // for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
-    //   digitalWrite(STATUS_LED[i], HIGH);
-    //   delay(50);
-    // }
-    // for (int i = 0; i < sizeof(STATUS_LED)/sizeof(*STATUS_LED); i++){
-    //   digitalWrite(STATUS_LED[i], LOW);
-    // }
-    // delay(100);
-
 }
 
 // TODO: Why does the voltae calculation read consistently low?
@@ -47,13 +32,14 @@ float getShutdownCircuitVoltage() {
 }
 
 
-
-StatusLight::StatusLight(int pin, long on, long off) {
+// A class for easily controlling the status lights on board.
+// Make sure you call update() every loop.
+StatusLight::StatusLight(int pin) {
   ledPin = pin;
   pinMode(ledPin, OUTPUT);
 
-  OnTime = on;
-  OffTime = off;
+  OnTime = 0;
+  OffTime = 0;
 
   ledState = LOW;
   previousMillis = 0;
@@ -63,19 +49,36 @@ void StatusLight::update() {
   // check to see if it's time to change the state of the LED
   unsigned long currentMillis = millis();
 
-  if((ledState == HIGH) && (currentMillis - previousMillis >= OnTime))
+  if( (OnTime == 0 || ledState == HIGH) && (currentMillis - previousMillis >= OnTime))
   {
   	ledState = LOW;  // Turn it off
     previousMillis = currentMillis;  // Remember the time
     digitalWrite(ledPin, ledState);  // Update the actual LED
   }
-  else if ((ledState == LOW) && (currentMillis - previousMillis >= OffTime)) {
+  else if ( (OffTime == 0 || ledState == LOW) && (currentMillis - previousMillis >= OffTime)) {
     ledState = HIGH;  // turn it on
     previousMillis = currentMillis;   // Remember the time
     digitalWrite(ledPin, ledState);	  // Update the actual LED
   }
 }
 
-// void StatusLight::set(int freq, int duty) {
-//
-// }
+// Set the frequency and duty-cycle by defining on-time and off-time [ms]
+void StatusLight::update(long on, long off) {
+  OnTime = on;
+  OffTime = off;
+  previousMillis = 0; // Guarantee an update NOW
+  update();
+}
+
+// Set the LED on
+void StatusLight::on() {
+  OnTime = 500; // Must be greater than zero.
+  OffTime = 0;  // Must be zero
+}
+
+// Set the LED off
+void StatusLight::off() {
+  OnTime = 0;  // Must be zero
+  OffTime = 500; // Must be greater than zero.
+
+}

@@ -8,8 +8,11 @@
 class StatusLight
 {
   public:
-    StatusLight(int pin, long on, long off);
+    StatusLight(int pin);
     void update();
+    void update(long on, long off);
+    void on();
+    void off();
   private:
     int ledPin;
     long OnTime;

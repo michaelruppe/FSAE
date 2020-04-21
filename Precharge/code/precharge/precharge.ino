@@ -30,10 +30,11 @@ STATEVAR state = STATE_STANDBY;
 STATEVAR lastState = STATE_UNDEFINED;
 int errorCode = ERR_NONE;
 
-StatusLight statusLED[4] { { STATUS_LED[0], 500, 500 },
-                          { STATUS_LED[1], 200, 200 },
-                          { STATUS_LED[2], 1200, 1200 },
-                          { STATUS_LED[3], 800, 800 }};
+StatusLight statusLED[4] {{ STATUS_LED[0] },
+                          { STATUS_LED[1] },
+                          { STATUS_LED[2] },
+                          { STATUS_LED[3] }};
+
 
 
 // Uptime from millis()
@@ -44,7 +45,6 @@ void setup() {
   // Initialise IO
   setupGPIO();
   delay(3000);
-
 
 }
 
@@ -210,6 +210,7 @@ void errorState() {
 }
 
 
+// Loop through the array and call update. Simple
 void updateStatusLeds() {
   for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
     statusLED[i].update();
