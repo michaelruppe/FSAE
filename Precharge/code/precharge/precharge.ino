@@ -222,7 +222,7 @@ void errorState() {
     }
     if (errorCode & ERR_PRECHARGE_TOO_SLOW) {
       Serial.println(F("   *Precharge too slow. Suspect wiring fault."));
-      statusLED[0].update(100,100);
+      statusLED[1].on();
     }
     if (errorCode & ERR_STATE_UNDEFINED) {
       Serial.println(F("   *State not defined in The State Machine."));
