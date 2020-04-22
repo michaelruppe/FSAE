@@ -142,7 +142,7 @@ In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. 
 
 <div align="center">
 <img src="docs/precharge-power.png" width="800">
-<p>A 390Ohm resistor precharges the tractive system in less than four seconds, experiencing a brief, intense overloading. Overloads of this nature are acceptable for the selected family of power resistors and allow cheaper, smaller, low-power resistors to be specified.
+<p>A 390Ohm 25W resistor precharges the TS to 90% in 3.6 seconds, experiencing a brief 16x overload. Overloads of this nature are acceptable for the selected family of power resistors and allow cheaper, smaller, low-power resistors to be specified.
 </p>
 </div>
 
