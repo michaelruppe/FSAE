@@ -8,7 +8,7 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 
 **Important Directories / Files**
 - [code/precharge](code/precharge) - The source code
-- [schematic-v1.1.pdf](schematic-v1.1.pdf) - The schematic, as built.
+- [docs/schematic-v1.1.pdf](docs/schematic-v1.1.pdf) - The schematic, as built.
 - [Precharge](Precharge) - The PCB design files
 - [docs](docs) - Data collected during commissioning, image assets for this document.
 
