@@ -9,8 +9,9 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 **Important Directories / Files**
 - [code/precharge](code/precharge) - The source code
 - [docs/schematic-v1.1.pdf](docs/schematic-v1.1.pdf) - The schematic, as built.
-- [Precharge](Precharge) - The PCB design files
+- [docs/pinout-v1.1.pdf](docs/pinout-v1.1.pdf) - Pinout diagram with connection descriptions.
 - [docs](docs) - Data collected during commissioning, image assets for this document.
+- [Precharge](Precharge) - The PCB design files
 
 ## Contents
 
