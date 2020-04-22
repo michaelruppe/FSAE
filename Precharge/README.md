@@ -18,6 +18,7 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 - Isolated HV measurement
 - CAN interface (provisional) for status output
 - Serial interface for status and commissioning data
+- FSAE one-size-fits-all. This module is capable of precharging any voltage accumulator (within FSAE rules) without significant hardware/software rework. To modify for a new accumulator/tractive-system, select appropriate precharge resistor and update relevant software parameters as discussed in
 
 
 
@@ -83,7 +84,7 @@ Here, we simulate a precharge sequence using low voltages that bypasses the pres
 - Bypass the prescaling voltage dividers:
   - Connect `TP5` to precharge resistor (accumulator side)
   - Connect `TP6` to `HV OUT`
-- Apply 4-10V to `HV IN`. Exact voltage will depend on accumulator voltage to be simulated: Accumulator Voltage multiplied by `gainVoltageDivider` (from commissioning steps) gives this voltage.
+- Apply 4-10V to `HV IN`. Exact voltage will depend on accumulator voltage to be simulated: Accumulator Voltage multiplied by `gainVoltageDivider` (0.015 from prescribed components) gives this voltage.
 - Monitor serial data from the microcontroller via USB
 - Power the circuit at `J1`
 - Monitor precharge behaviour in serial console and note precharge percentage and duration.
@@ -112,8 +113,23 @@ A precharge sequence was simulated following the above procedure with results sh
 
 Of note are the seemingly high precharge percentages observed between 0-200ms. These are artifacts of moving average filters used to smooth voltage measurements and reject spurious measurements. Since the smoothed accumulator voltage does not rise instantaneously, the precharge voltage represents a significant percentage in early stages of the precharge cycle.
 
+## How to modify this design
+When moving to a new tractive system configuration and/or accumulator voltage, the only hardware component that may require respecification is the Precharge Resistor `R49`. A HS25 series resistor ([datasheet](docs/TE-Connectivity-Type-HS-Series-Resistor-1773035_C)) from TE Connectivity is specified for this component. As per the datasheet, these devices are capable of significant, short-duration overloads, many times in excess of their continuous-duty rating.
 
+<div align="center">
+<img src="docs/resistor-overload.png" width="400">
+<p>Short term overloading of a power resistor is acceptable. This design relies on short term overloading to keep the power resistor small, light and cheap.
+<br>(Graphic Source: TE Connectivity Type HS datasheet)
+</p>
+</div>
 
+In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. Using these as design constraints, a 390Ohm precharge resistor was selected to precharge the TS quickly without excessive overload. As seen below, the resistor is overloaded to 400W (16x) its rating for a very brief period at the start of a precharge sequence. After approximately 1 second the resistor is no longer overloaded.
+
+<div align="center">
+<img src="docs/precharge-power.png" width="800">
+<p>A 390Ohm resistor precharges the tractive system in less than four seconds, experiencing a brief, intense overloading. Overloads of this nature are acceptable for the selected family of power resistors and allow cheaper, smaller, low-power resistors to be specified.
+</p>
+</div>
 
 ## Recommendations after building prototype
 
