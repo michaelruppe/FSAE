@@ -12,7 +12,20 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 - [Precharge](Precharge) - The PCB design files
 - [docs](docs) - Data collected during commissioning, image assets for this document.
 
-## Specifications & Features
+## Contents
+
+- [Specifications and Features](#Specifications-and-Features)
+- [Operation](#Operation)
+- [Manual](#Manual)
+- [Commissioning Steps](#Commissioning-Steps)
+  - [Characterise Voltage-Frequency Relationship](Characterise-Voltage-Frequency-Relationship)
+  - [Simulate Precharge](#Simulate-Precharge)
+  - [Results](#Results)
+-[How to modify this design](#How-to-modify-this-design)
+-[Recommendations](#Recommendations)
+
+
+## Specifications and Features
 - Wide input voltage 0 - 600V
 - Powered by shutdown circuit: 12V
 - Integrated PDOC
@@ -132,6 +145,6 @@ In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. 
 </p>
 </div>
 
-## Recommendations after building prototype
+## Recommendations
 
 **V-F Conversion**: Either include offset in V-F converter circuit so that min frequency is eg ~100Hz instead of 0Hz ([Datasheet](https://www.ti.com/lit/ds/symlink/lm331.pdf): Figure 14) or replace V-F converters with a microcontroller programmed for the same task. The challenge is that low frequencies require a long timeout period. Applying a 100Hz offset means the longest timeout would be 10 milli-seconds. The current solution works well, using a combination of outlier rejection and Exponential Moving Average filters.
