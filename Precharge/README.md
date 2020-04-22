@@ -123,7 +123,7 @@ When moving to a new tractive system configuration and/or accumulator voltage, t
 </p>
 </div>
 
-In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. Using these as design constraints, a 390Ohm precharge resistor was selected to precharge the TS quickly without excessive overload. As seen below, the resistor is overloaded to 400W (16x) its rating for a very brief period at the start of a precharge sequence. After approximately 1 second the resistor is no longer overloaded.
+In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. Using these as design constraints, a 390Ohm precharge resistor was selected to precharge the TS quickly without excessive overload. As seen below, the resistor is overloaded to 400W (16x) its rating for a very brief period at the start of a precharge sequence. After approximately 1 second the resistor is no longer overloaded. The initial precharge current(~1A) is well within the capacity of the HV contactor. The resistance is above the minimum required for 2020 motorcontrollers (47Ohm).
 
 <div align="center">
 <img src="docs/precharge-power.png" width="800">
