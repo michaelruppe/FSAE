@@ -17,7 +17,7 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 - Integrated PDOC
 - Isolated HV measurement
 - CAN interface (provisional) for status output
-- Serial interface for collecting commissioning
+- Serial interface for status and commissioning data
 
 
 
