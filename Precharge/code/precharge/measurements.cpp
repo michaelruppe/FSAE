@@ -19,8 +19,8 @@ const double V2F_slope_ts = 740.63;     // Gradient constant
 const double V2F_ofs_ts = -3.7241;      // offset / y-intercept consant
 
 // Voltage dividers upstream of V-F converters:
-// R1 = 2.55M, R2 = 39k
-// gain = R2/(R1+R2)
+// R31+R32+R36+R37 = 2.55M, R39 = 39k, Rtotal = 2.55M+39k
+// gain = R39/(Rtotal)
 const double gainVoltageDivider = 0.01506373117;
 
 const float MIN_VOLTAGE_THRESHOLD = 5.0;  // Clip voltages below this level
