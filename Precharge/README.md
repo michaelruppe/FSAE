@@ -16,13 +16,12 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 
 - [Specifications and Features](#Specifications-and-Features)
 - [Operation](#Operation)
-- [Manual](#Manual)
 - [Commissioning Steps](#Commissioning-Steps)
   - [Characterise Voltage-Frequency Relationship](Characterise-Voltage-Frequency-Relationship)
   - [Simulate Precharge](#Simulate-Precharge)
   - [Results](#Results)
--[How to modify this design](#How-to-modify-this-design)
--[Recommendations](#Recommendations)
+- [How to modify this design](#How-to-modify-this-design)
+- [Recommendations](#Recommendations)
 
 
 ## Specifications and Features
@@ -59,14 +58,13 @@ If at any point the Shutdown Circuit voltage becomes too low, enter `State: Stan
 <p>Figure 3: A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
 </div>
 
-## Manual
 
 ## Commissioning Steps
 *Refer to [docs/Experiments.xlsx](docs/Experiments.xlsx) for sample data collected during prototype construction.*
 
 This section describes the steps taken to construct and characterise the Precharge Module. Repeat these steps as necessary when re-commissioning later versions of the circuit.
 
-### Characterise Voltage-Frequency
+### Characterise Voltage-Frequency Relationship
 - Assemble power supply components and V-F converter circuitry `U5 - U9`.
 - Characterise voltage-frequency performance: perform V-F experiment `code/01-v-f-experiment` *Refer to Figure 4 for sample data collected during prototype construction*
   - Apply 0.15-10V at V-F inputs: `TP5, TP6`.
