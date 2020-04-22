@@ -61,6 +61,8 @@ If at any point the Shutdown Circuit voltage becomes too low, enter `State: Stan
 
 
 ## Commissioning Steps
+*Refer to the [docs/schematic-v1.1](docs/schematic-v1.1.pdf) for component and test-point references.*
+
 *Refer to [docs/Experiments.xlsx](docs/Experiments.xlsx) for sample data collected during prototype construction.*
 
 This section describes the steps taken to construct and characterise the Precharge Module. Repeat these steps as necessary when re-commissioning later versions of the circuit.
