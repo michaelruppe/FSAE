@@ -17,10 +17,11 @@ A device to precharge the Tractive System. This prototype features voltage feedb
 
 - [Specifications and Features](#Specifications-and-Features)
 - [Operation](#Operation)
-- [Commissioning Steps](#Commissioning-Steps)
+- [Commissioning Steps - Precharge](#Commissioning-Steps-Precharge)
   - [Characterise Voltage-Frequency Relationship](Characterise-Voltage-Frequency-Relationship)
   - [Simulate Precharge](#Simulate-Precharge)
   - [Results](#Results)
+- [Commissioning Steps - PDOC](#Commissioning-Steps-PDOC)
 - [How to modify this design](#How-to-modify-this-design)
 - [Recommendations](#Recommendations)
 
@@ -60,7 +61,7 @@ If at any point the Shutdown Circuit voltage becomes too low, enter `State: Stan
 </div>
 
 
-## Commissioning Steps
+## Commissioning Steps - Precharge
 *Refer to the [docs/schematic-v1.1](docs/schematic-v1.1.pdf) for component and test-point references.*
 
 *Refer to [docs/Experiments.xlsx](docs/Experiments.xlsx) for sample data collected during prototype construction.*
@@ -128,8 +129,24 @@ A precharge sequence was simulated following the above procedure with results sh
 
 Of note are the seemingly high precharge percentages observed between 0-200ms. These are artifacts of moving average filters used to smooth voltage measurements and reject spurious measurements. Since the smoothed accumulator voltage does not rise instantaneously, the precharge voltage represents a significant percentage in early stages of the precharge cycle.
 
+
+## Commissioning Steps - PDOC
+The Precharge module includes an integrated thermal overload protection (PDOC) (Figure 7). A thermistor `TH1` monitors the precharge resistor temperature. As temperature increases, the inverting-input voltage of comparator `U10A` rises. Once the voltage at the inverting input rises above the reference voltage (noninverting input) the PDOC will trip. The reference voltage created by `R26` and `R27` therefore sets the temperature threshold. If `R27` = `R29` then select `R26` to be equal to the value of `TH1` at the desired trip-temperature. Referring to thermistor data in Figure 8, for a trip-temperature of eg. 80 degC, `R26` should be about 12kOhm.
+
+<div align="center">
+<img src="docs/pdoc.png" width="400">
+<p>Figure 7: The Precharge Overload Circuit monitors the temperature of the precharge resistor and triggers a fault if the temperature becomes too high. R26,R27 set the threshold temperature, TH1 is the temperature-monitoring thermistor.
+</p>
+</div>
+
+<div align="center">
+<img src="docs/thermistor-response.png" width="200">
+<p>Figure 8: The thermistor response. R_25 is 10kOhm for the selected device. At 80 degrees Celcius the resistance will be 1.242 x 10kOhm = 12.4kOhm
+</p>
+</div>
+
 ## How to modify this design
-When moving to a new tractive system configuration and/or accumulator voltage, the only hardware component that may require respecification is the Precharge Resistor `R49`. A HS25 series resistor ([datasheet](docs/TE-Connectivity-Type-HS-Series-Resistor-1773035_C)) from TE Connectivity is specified for this component - available in a large range of resistances. As per the datasheet, these devices are capable of significant, short-duration overloads, many times in excess of their continuous-duty rating. It is likely that only the resistance will need to be respecified, ie. select a  HS25 family resistor of the appropriate resistance as follows.
+When moving to a new tractive system configuration and/or accumulator voltage, the only hardware component that may require respecification is the Precharge Resistor `R49`. A HS25 series resistor ([datasheet](datasheets/TE-Connectivity-Type-HS-Series-Resistor-1773035_C)) from TE Connectivity is specified for this component - available in a large range of resistances. As per the datasheet, these devices are capable of short-duration overloads many times in excess of their continuous-duty rating. It is likely that only the resistance will need to be respecified, ie. select a  HS25 family resistor of the appropriate resistance.
 
 <div align="center">
 <img src="docs/resistor-overload.png" width="400">
@@ -138,11 +155,11 @@ When moving to a new tractive system configuration and/or accumulator voltage, t
 </p>
 </div>
 
-In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. Using these as design constraints, a 390Ohm precharge resistor was selected to precharge the TS quickly without excessive overload. As seen below, the resistor is overloaded to 400W (16x) its rating for a very brief period at the start of a precharge sequence. After approximately 1 second the resistor is no longer overloaded. The initial precharge current(~1A) is well within the capacity of the HV contactor. The resistance is above the minimum required for 2020 motorcontrollers (47Ohm).
+In 2020, NU Racing specified a 400V accumulator and a TS capacitance of 1600uF. Using these as design constraints, a 390Ohm precharge resistor was selected to precharge the TS quickly without excessive overload. As seen below, the resistor is overloaded to 400W (16 times its rating) for a very brief period at the start of a precharge sequence. After approximately 1 second the resistor is no longer overloaded. The initial precharge current(~1A) is well within the capacity of the precharge contactor. The resistance is above the minimum required for 2020 motorcontrollers (47 Ohm).
 
 <div align="center">
 <img src="docs/precharge-power.png" width="800">
-<p>A 390Ohm 25W resistor precharges the TS to 90% in 3.6 seconds, experiencing a brief 16x overload. Overloads of this nature are acceptable for the selected family of power resistors and allow cheaper, smaller, low-power resistors to be specified.
+<p>A 390Ohm 25W resistor precharges the TS to 95% in about 2.5 seconds, experiencing a brief 16x overload. Overloads of this nature are acceptable for the selected family of power resistors and allow cheaper, smaller, low-power resistors to be specified.
 </p>
 </div>
 
