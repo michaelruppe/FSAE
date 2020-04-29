@@ -1,20 +1,28 @@
 /*
-  Precharge - Code to drive the Precharge prototype module
-  Created by Michael Ruppe, April, 2020.
-  For more documentation, visit:
-  https://github.com/michaelruppe/FSAE
+  Precharge - Code to drive the NU Racing Precharge module (prototype)
+  Created by Michael Ruppe
+  April 2020
 
+  Watch a primer video on this device here: https://youtu.be/6-RndXZ5mR4
+  For more documentation, visit: https://github.com/michaelruppe/FSAE
+
+  Dear future FSAE engineer,
   Perform a find (Ctrl+f) for "TODO" to see if I left you any surprises :D
+
+  Commissioning notes:
+    - Make sure TARGET_PERCENT is sensible (95%). I set it much lower
+      during prototyping.
 
   Features:
     - Voltage feedback ensures sufficient precharge before closing AIR
-    - Wiring fault / stuck-discharge detection on "too fast" precharge
-    - Arrests AIR chatter -> minimum precharge time triggers error state and
+    - Wiring fault / stuck-discharge detection on "too-fast/slow" precharge
+    - May arrest AIR chatter -> minimum precharge time triggers error state and
       requires uC reset or power cycle.
 
-  TODO:
+
+  Other Notes:
     - Consider adding a condition to the STATE_STANDBY -> STATE_PRECHARGE
-      transition: Check for zero TS voltage, ensure full discharge before
+      transition: Check for near-zero TS voltages ensures full discharge before
       attempting a precharge.
 */
 
@@ -46,7 +54,7 @@ unsigned long now; // Uptime from millis()
 void setup() {
   Serial.begin(460800);
   setupGPIO();
-  delay(3000);
+  delay(3000);  // TODO: remove during commissioning
 
 }
 
@@ -55,16 +63,7 @@ void loop() {
   now = millis();
 
   // Always monitor Shutdown Circuit Voltage and react
-  static unsigned long lastSample = 0;
-  if (now > lastSample + 10) {
-    lastSample = now;
-    SDC_Average.update(getShutdownCircuitVoltage());
-  }
-  // Error state should be deadlocked - no way out.
-  if ( SDC_Average.value() < MIN_SDC_VOLTAGE && state != STATE_ERROR) {
-    state = STATE_STANDBY;
-  }
-
+  monitorShutdownCircuit();
 
   // The State Machine
   switch(state){
@@ -94,9 +93,21 @@ void loop() {
 
 }
 
+void monitorShutdownCircuit() {
+  static unsigned long lastSample = 0;
+  if (now > lastSample + 10) {
+    lastSample = now;
+    SDC_Average.update(getShutdownCircuitVoltage());
+  }
+  // Error state should be deadlocked - no way out.
+  if ( SDC_Average.value() < MIN_SDC_VOLTAGE && state != STATE_ERROR) {
+    state = STATE_STANDBY;
+  }
+}
+
 // Open AIRs, Open Precharge, indicate status, wait for stable shutdown circuit
 void standby() {
-  static unsigned long epoch = millis();
+  static unsigned long epoch;
   if (lastState != STATE_STANDBY) {
     lastState = STATE_STANDBY;
     updateStatusLeds(0,0);
@@ -131,12 +142,12 @@ void standby() {
 // Trip error if charge-time looks unusual
 void precharge() {
   // Look for "too fast" or "too slow" precharge, indicates wiring fault
-  const float MIN_EXPECTED = 500; // [ms].
-  const float MAX_EXPECTED = 5000; // [ms].
+  const float MIN_EXPECTED = 500; // [ms]. Set this to something reasonable after collecting normal precharge sequence data
+  const float MAX_EXPECTED = 3000; // [ms]. Set this to something reasonable after collecting normal precharge sequence data
   // If a precharge is detected faster than this, an error is
-  // thrown - assumed wiring fault. This will also arrest oscillating or
+  // thrown - assumed wiring fault. This could also arrest oscillating or
   // chattering AIRs, because the TS will retain some amount of precharge.
-  const float TARGET_PERCENT = 88.0;   // TODO: Change to suitable value during commissioning
+  const float TARGET_PERCENT = 88.0;   // TODO: Requires suitable value during commissioning (eg 95%)
   const unsigned int SETTLING_TIME = 200; // [ms] Precharge amount must be over TARGET_PERCENT for this long before we consider precharge complete
   static unsigned long epoch;
   static unsigned long tStartPre;
@@ -146,7 +157,7 @@ void precharge() {
     lastState = STATE_PRECHARGE;
     updateStatusLeds(0,0);
     statusLED[1].on();
-    sprintf(lineBuffer, " === PRECHARGE\n Target precharge %4.1f%%\n", TARGET_PERCENT);
+    sprintf(lineBuffer, " === PRECHARGE   Target precharge %4.1f%%\n", TARGET_PERCENT);
     Serial.print(lineBuffer);
     epoch = now;
     tStartPre = now;
