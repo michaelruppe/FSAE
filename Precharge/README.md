@@ -56,7 +56,7 @@ If at any point the Shutdown Circuit voltage becomes too low, enter `State: Stan
 </div>
 <div align="center">
 <img src="docs/timing-diagram.png" width="800">
-<p>Figure 3: A timing diagram illustrating a precharge sequence. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
+<p>Figure 3: precharge sequence timing. When the TS voltage reaches the target voltage, precharge is complete and the AIR closes. The target voltage should be 90-95% of the Accumulator voltage</p>
 </div>
 
 
