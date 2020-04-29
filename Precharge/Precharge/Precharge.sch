@@ -343,14 +343,14 @@ F 3 "~" H 11650 2100 50  0001 C CNN
 	1    11650 2100
 	0    1    -1   0   
 $EndComp
-Text Notes 8550 1050 0    50   ~ 10
+Text Notes 8450 1050 0    50   ~ 10
 PDOC - Thermal overload protection for precharge resistor
 Wire Notes Line width 8
 	14250 1050 14250 2900
 Wire Notes Line width 8
-	14250 2900 8550 2900
+	14250 2900 8450 2900
 Wire Notes Line width 8
-	8550 1050 8550 2900
+	8450 1050 8450 2900
 Wire Wire Line
 	6300 1600 6550 1600
 Connection ~ 6300 1600
@@ -9210,7 +9210,7 @@ F 3 "" H 13400 1700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Notes Line width 8
-	8550 1050 14250 1050
+	8450 1050 14250 1050
 Text Label 13600 2200 0    50   ~ 0
 PDOC_OK
 Wire Wire Line
@@ -9357,7 +9357,7 @@ L Device:R R26
 U 1 1 5E5F31BE
 P 9200 1500
 F 0 "R26" V 8993 1500 50  0000 C CNN
-F 1 "10k" V 9084 1500 50  0000 C CNN
+F 1 "12k" V 9084 1500 50  0000 C CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" V 9130 1500 50  0001 C CNN
 F 3 "~" H 9200 1500 50  0001 C CNN
 	1    9200 1500
@@ -9390,7 +9390,7 @@ L Device:Thermistor TH1
 U 1 1 5E5EFB99
 P 9700 1550
 F 0 "TH1" H 9595 1504 50  0000 R CNN
-F 1 "TFPT1206L1002FM" H 9595 1595 50  0000 R CNN
+F 1 "TFPT1206L1002FM" H 10300 1250 50  0000 R CNN
 F 2 "Resistor_SMD:R_1206_3216Metric" H 9700 1550 50  0001 C CNN
 F 3 "~" H 9700 1550 50  0001 C CNN
 	1    9700 1550
@@ -10458,10 +10458,6 @@ Wire Wire Line
 	9350 7900 9350 8250
 Connection ~ 9350 8250
 Connection ~ 2900 7350
-Wire Bus Line
-	10200 5100 10200 5350
-Wire Bus Line
-	12300 4350 12300 4500
 $Comp
 L power:+12P #PWR0103
 U 1 1 5EA29FEA
@@ -10486,4 +10482,8 @@ F 3 "" H 2250 7200 50  0001 C CNN
 $EndComp
 Text Notes 3050 2300 0    50   ~ 0
 C6, C7 not populated
+Wire Bus Line
+	10200 5100 10200 5350
+Wire Bus Line
+	12300 4350 12300 4500
 $EndSCHEMATC
