@@ -110,7 +110,7 @@ void standby() {
   static unsigned long epoch;
   if (lastState != STATE_STANDBY) {
     lastState = STATE_STANDBY;
-    updateStatusLeds(0,0);
+    statusLEDsOff();
     statusLED[0].on();
     Serial.println(F(" === STANDBY"));
     Serial.println(F("* Waiting for stable shutdown circuit"));
@@ -155,7 +155,7 @@ void precharge() {
   if (lastState != STATE_PRECHARGE){
     digitalWrite(PRECHARGE_CTRL_PIN, HIGH);
     lastState = STATE_PRECHARGE;
-    updateStatusLeds(0,0);
+    statusLEDsOff();
     statusLED[1].on();
     sprintf(lineBuffer, " === PRECHARGE   Target precharge %4.1f%%\n", TARGET_PERCENT);
     Serial.print(lineBuffer);
@@ -216,7 +216,7 @@ void running() {
   const unsigned int T_OVERLAP = 500; // ms. Time to overlap the switching of AIR and Precharge
   static unsigned long epoch;
   if (lastState != STATE_ONLINE){
-    updateStatusLeds(0,0);
+    statusLEDsOff();
     statusLED[2].on();
     Serial.println(F(" === RUNNING"));
     lastState = STATE_ONLINE;
@@ -234,7 +234,7 @@ void errorState() {
 
   if (lastState != STATE_ERROR){
     lastState = STATE_ERROR;
-    updateStatusLeds(0,0);      // All off
+    statusLEDsOff();
     statusLED[3].update(50,50); // Strobe STS LED
     Serial.println(F(" === ERROR"));
 
@@ -262,6 +262,11 @@ void errorState() {
 void updateStatusLeds() {
   for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
     statusLED[i].update();
+  }
+}
+void statusLEDsOff() {
+  for (uint8_t i=0; i<(sizeof(statusLED)/sizeof(*statusLED)); i++){
+    statusLED[i].off();
   }
 }
 void updateStatusLeds(long ton, long toff) {
