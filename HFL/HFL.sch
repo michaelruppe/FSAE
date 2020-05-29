@@ -7,7 +7,7 @@ encoding utf-8
 Sheet 1 1
 Title "Hard Fault Latch (HFL)"
 Date "2020-05-18"
-Rev "v2.1"
+Rev "v2.2"
 Comp "NU Racing"
 Comment1 "Michael Ruppe"
 Comment2 "github.com/michaelruppe/FSAE"
@@ -1660,8 +1660,6 @@ F 3 "~" H 10050 6400 50  0001 C CNN
 	1    10050 6400
 	1    0    0    1   
 $EndComp
-Wire Wire Line
-	12400 6350 11650 6350
 Connection ~ 11650 6350
 Wire Wire Line
 	11650 6750 11650 6800
@@ -1738,8 +1736,6 @@ Wire Wire Line
 	8500 8850 8650 8850
 Wire Wire Line
 	8500 8750 8500 8850
-Wire Wire Line
-	12400 6350 12400 7100
 $Comp
 L Switch:SW_Push SW1
 U 1 1 5DE28455
@@ -1812,12 +1808,6 @@ Wire Wire Line
 Connection ~ 10050 7650
 Wire Wire Line
 	10050 7650 10050 8200
-Connection ~ 12400 7100
-Wire Wire Line
-	12400 7100 12400 7300
-Connection ~ 12400 7300
-Wire Wire Line
-	12400 7300 12400 7500
 Wire Wire Line
 	10050 6550 11350 6550
 Wire Wire Line
@@ -1961,6 +1951,12 @@ NoConn ~ 13400 5300
 NoConn ~ 13300 4700
 NoConn ~ 13500 4700
 NoConn ~ 13700 4700
+Wire Wire Line
+	12400 7500 12350 7500
+Wire Wire Line
+	12350 7500 12350 6350
+Wire Wire Line
+	11650 6350 12350 6350
 Wire Bus Line
 	12150 1000 12150 3350
 Wire Bus Line
