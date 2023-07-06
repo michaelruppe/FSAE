@@ -1,6 +1,6 @@
 # Precharge
 
-![](https://www.youtube.com/watch?v=6-RndXZ5mR4)
+[![Watch the walkthrough video](https://img.youtube.com/vi/6-RndXZ5mR4/0.jpg)](https://www.youtube.com/watch?v=6-RndXZ5mR4)
 
 A device to precharge the Tractive System. This prototype features voltage feedback to protect AIRs. In open-loop systems, if a wiring fault develops (eg. precharge resistor is disconnected or discharge is stuck on) then the precharge is ineffective and AIRs may become damaged.
 <div align="center">
