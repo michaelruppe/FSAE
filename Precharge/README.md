@@ -148,7 +148,7 @@ The Precharge module includes an integrated thermal overload protection (PDOC) (
 </div>
 
 ## How to modify this design
-When moving to a new tractive system configuration and/or accumulator voltage, the only hardware component that may require respecification is the Precharge Resistor `R49`. A HS25 series resistor ([datasheet](datasheets/TE-Connectivity-Type-HS-Series-Resistor-1773035_C)) from TE Connectivity is specified for this component - available in a large range of resistances. As per the datasheet, these devices are capable of short-duration overloads many times in excess of their continuous-duty rating. It is likely that only the resistance will need to be respecified, ie. select a  HS25 family resistor of the appropriate resistance.
+When moving to a new tractive system configuration and/or accumulator voltage, the only hardware component that may require respecification is the Precharge Resistor `R46`. A HS25 series resistor ([datasheet](datasheets/TE-Connectivity-Type-HS-Series-Resistor-1773035_C)) from TE Connectivity is specified for this component - available in a large range of resistances. As per the datasheet, these devices are capable of short-duration overloads many times in excess of their continuous-duty rating. It is likely that only the resistance will need to be respecified, ie. select a  HS25 family resistor of the appropriate resistance.
 
 <div align="center">
 <img src="docs/resistor-overload.png" width="400">
