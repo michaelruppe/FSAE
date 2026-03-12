@@ -1,5 +1,7 @@
 # FSAE
 
+**Team mentoring and design reviews available - contact through [michaelruppe.com](https://michaelruppe.com)**
+
 Hardware projects for the FSAE Electric 2019/2020 competition (Australia).
 💻Github https://github.com/michaelruppe/FSAE
 
