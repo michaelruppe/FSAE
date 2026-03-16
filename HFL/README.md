@@ -1,3 +1,5 @@
+**Warning: This design was never physically prototyped. As-is it is a mostly-complete design, but has never been through build, commissioning, troubleshooting. Proceed at your own risk.**
+
 # Hard Fault Latch
 A shutdown-circuit component.
 
