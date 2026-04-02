@@ -1,9 +1,12 @@
 # FSAE
 
-**Team mentoring and design reviews available - contact through [michaelruppe.com](https://michaelruppe.com)**
-
 Hardware projects for the FSAE Electric 2019/2020 competition (Australia).
 💻Github https://github.com/michaelruppe/FSAE
+
+## Resources
+**Team mentoring and design reviews available - contact through [michaelruppe.com](https://michaelruppe.com)**
+
+[ShutdownCircuit.com](https://shutdowncircuit.com) is a free resource to help new FSAE EV teams shortcut the growing pains of designing EV safety systems.
 
 ## [TSAL](TSALv3)
 A light that indicates presence of dangerous voltage within the Tractive System
